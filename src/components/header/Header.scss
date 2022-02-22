@@ -1,0 +1,30 @@
+.header {
+  padding: 2em;
+  .header-content {
+    background-color: black;
+    color: white;
+    text-align: center;
+    // padding: 2em 0;
+    margin-left: 5em;
+    margin-right: 5em;
+    border-radius: 1.5em;
+    img {
+      width: 30em;
+    }
+    a {
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1em;
+      font-style: normal;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 2em;
+      text-align: center;
+    }
+  }
+  h4 {
+    margin-bottom: 1em;
+  }
+  
+}
+
