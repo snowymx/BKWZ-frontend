@@ -18,8 +18,25 @@
       font-style: normal;
       font-weight: bold;
       cursor: pointer;
-      padding: 2em;
+      padding-right: 2em;
+      padding-left: 2em;
+      padding-top: 1em;
+      padding-bottom: 1em;
       text-align: center;
+    }
+    a:hover {
+      background: linear-gradient(180deg, #FF9600 0%, #FF9600 100%);
+      border: 1px solid rgba(255, 255, 255, 0.19);
+      box-sizing: border-box;
+      border-radius: 25px;
+      color: black;
+    }
+    a:active {
+      background: linear-gradient(180deg, #FF9600 0%, #FF9600 100%);
+      border: 1px solid rgba(255, 255, 255, 0.19);
+      box-sizing: border-box;
+      border-radius: 25px;
+      color: black;
     }
   }
   h4 {
