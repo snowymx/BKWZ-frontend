@@ -18,12 +18,11 @@ const Welcome = () => {
           <p>Whitelist our Avatars NFT’s drop just below. Limited to 1000.</p>
           <p>By staking the NFT, you will earn BKWZ Tokens daily!</p>
           <div className='row'>
-            <div className='col-12 col-md-4'></div>
-            <div className=' whitelist-button col-12 col-md-4'>Whitelist</div>
-            <div className='col-12 col-md-4'></div>
+            <div className='col-12 col-md-4 col-sm-4'></div>
+            <div className=' whitelist-button col-12 col-md-4 col-sm-4'>Whitelist</div>
+            <div className='col-12 col-md-4 col-sm-4'></div>
           </div>
-          
-          <div className='dice-group'>
+          <div className='row dice-group'>
             <img src={diceImage}></img>
           </div>
         </div>
@@ -171,7 +170,7 @@ const Welcome = () => {
               <img src={signLogo} alt="logo" />
             </div>
             <div className='col-lg-11'>
-              <p>Token Contract address: 0xab5231d197AC42123d346f4EB70C703F308D1E0x234</p>
+              <p>Token Contract address: <span className='small-font'>0xab5231d197AC42123d346f4EB70C703F308D1E0x234</span> </p>
             </div>
           </div>
           <div className='row'>
@@ -179,7 +178,7 @@ const Welcome = () => {
                 <img src={dice} alt="logo" />
               </div>
               <div className='col-lg-11'>
-                <p>Avatar Contract address: 0x8927985B358692815E18F2138964679DcA231fds5ds3</p>
+                <p>Avatar Contract address: <span className='small-font'>0x8927985B358692815E18F2138964679DcA231fds5ds3</span></p>
               </div>
           </div>
         </div>

@@ -1,12 +1,16 @@
 .header {
   padding: 2em;
+  .p-mobile-auto {
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+  }
   .header-content {
     background-color: black;
     color: white;
     text-align: center;
     // padding: 2em 0;
-    margin-left: 5em;
-    margin-right: 5em;
+    margin-left: 1em;
+    margin-right: 1em;
     border-radius: 1.5em;
     img {
       width: 30em;
@@ -16,8 +20,8 @@
       font-style: normal;
       font-weight: bold;
       cursor: pointer;
-      padding-right: 2em;
-      padding-left: 2em;
+      padding-right: 0.5em;
+      padding-left: 0.5em;
       padding-top: 1em;
       padding-bottom: 1em;
       text-align: center;
@@ -37,9 +41,59 @@
       color: black;
     }
   }
-  h4 {
-    margin-bottom: 1em;
+  .header-mobile-content {
+    background-color: black;
+    color: white;
+    text-align: center;
+    // padding: 2em 0;
+    margin-left: 1em;
+    margin-right: 1em;
+    border-radius: 1.5em;
+    
+    img {
+      width: 15em;
+    }
+    a {
+      font-size: 0.8em;
+      font-style: normal;
+      font-weight: bold;
+      cursor: pointer;
+      padding-right: 0.5em;
+      padding-left: 0.5em;
+      padding-top: 1em;
+      padding-bottom: 1em;
+      text-align: center;
+    }
+    a:hover {
+      background: linear-gradient(180deg, #FF9600 0%, #FF9600 100%);
+      border: 1px solid rgba(255, 255, 255, 0.19);
+      box-sizing: border-box;
+      border-radius: 25px;
+      color: black;
+    }
+    a:active {
+      background: linear-gradient(180deg, #FF9600 0%, #FF9600 100%);
+      border: 1px solid rgba(255, 255, 255, 0.19);
+      box-sizing: border-box;
+      border-radius: 25px;
+      color: black;
+    }
   }
-  
 }
 
+@media (max-width: 1140px) {
+  .header-content {
+    display: none;
+  }
+  .header-mobile-content {
+    display: block;
+  }
+}
+@media (min-width: 1140px) {
+  .header-mobile-content{
+    display: none;
+  }
+  .header-content {
+    display: flex;
+  }
+}
