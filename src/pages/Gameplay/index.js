@@ -1,6 +1,13 @@
 import { Typography } from "@material-ui/core";
 
 function Gameplay() {
-  return <Typography>Gameplay</Typography>;
+  return (
+    <section className='container-fluid gameplay' id='gameplay'>
+      <div className='content'>
+        
+      </div>
+    </section>
+  );
+  // <Typography>Gameplay</Typography>;
 }
 export default Gameplay;
