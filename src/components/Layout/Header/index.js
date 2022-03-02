@@ -52,7 +52,8 @@ const Header = () => {
           </div>
           <div className='col-12 col-md-5 m-auto'>
             <div className='row'>
-              <div className={path === "/minting" ? 'col-12 col-md-4 m-auto link-item-active' : 'col-12 col-md-4 m-auto link-item'}>
+              <div className='col-12 col-md-1 m-auto'></div>
+              <div className={path === "/minting" ? 'col-12 col-md-3 m-auto link-item-active' : 'col-12 col-md-3 m-auto link-item'}>
                 <Link to="/minting">
                     Minting
                 </Link>
@@ -62,10 +63,10 @@ const Header = () => {
                     Staking
                 </Link>
               </div>
-              <div className={path === "" ? 'col-12 col-md-4 m-auto link-item-active' : 'col-12 col-md-4 m-auto link-item'}>
-                <Link to="">
+              <div className='col-12 col-md-4 m-auto link-item' style={{cursor: "pointer"}}>
+                {/* <Link to=""> */}
                     Connect Wallet
-                </Link>
+                {/* </Link> */}
               </div>
             </div>
           </div>

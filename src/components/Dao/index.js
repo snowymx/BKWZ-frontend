@@ -4,7 +4,7 @@ import diceImage from '../../assets/daoImage.png';
 
 const Dao = () => {
   return (
-    <section className='container-fluid dao' id='dao'>
+    <section className='container-fluid dao' id='dao' style={{padding: "5em 0"}}>
       <div className='content'>
         <div className='container'>
         <div className='intro'>
