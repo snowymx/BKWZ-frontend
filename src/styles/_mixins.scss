@@ -1,0 +1,50 @@
+@mixin justify-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin align-center {
+  display: flex;
+  align-items: center;
+}
+@mixin justify-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin styled-scrollbar {
+  &::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 0;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #2b2727;
+    border-radius: 0;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #141414;
+  }
+}
+@mixin gradient-border {
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50px;
+    padding: 4px;
+    background: linear-gradient(132.24deg, #126cff 4.37%, #22f1dc 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+  }
+}
