@@ -4,7 +4,7 @@
   justify-content: center;
   // align-items: center;
   // justify-content: center;
-  overflow: hidden;
+  // overflow: hidden;
   .bg {
     position: absolute;
     top: 0;
@@ -209,6 +209,7 @@
   .grad-txt {
     // background: -webkit-linear-gradient(0deg, #BA17C6 30%, #0394C1 70%);
     background: -webkit-linear-gradient(0deg, #D100E2 -11.59%, #0081AA 70.36%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 0.5em;

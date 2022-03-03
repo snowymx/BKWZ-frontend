@@ -1,9 +1,9 @@
 import React from 'react';
-import './Footer.scss';
-import mediumImg from '../../assets/medium.png';
-import discordImg from '../../assets/discord.png';
-import telegramImg from '../../assets/telegram.png';
-import youtubeImg from '../../assets/youtube.png';
+import './footer.scss';
+import mediumImg from '../../../assets/medium.png';
+import discordImg from '../../../assets/discord.png';
+import telegramImg from '../../../assets/telegram.png';
+import youtubeImg from '../../../assets/youtube.png';
 
 const Footer = () => {
   return (

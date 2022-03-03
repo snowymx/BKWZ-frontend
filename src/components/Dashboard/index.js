@@ -1,12 +1,12 @@
 import React from 'react';
-import './Welcome.scss';
+import './Dashboard.scss';
 import diceImage from '../../assets/DiceGroup.png';
 import signLogo from '../../assets/BWKZ_signlogo.png';
 import dice from '../../assets/DICE4.png';
 import ped from '../../assets/ped.png';
 import sam from '../../assets/Sam.png';
 
-const Welcome = () => {
+const Dashboard = () => {
   return (
     <section className='container-fluid welcome' id='welcome'>
       <div className='content'>
@@ -23,7 +23,7 @@ const Welcome = () => {
             <div className='col-12 col-md-4 col-sm-4'></div>
           </div>
           <div className='row dice-group'>
-            <img src={diceImage}></img>
+            <img src={diceImage} alt="dice" />
           </div>
         </div>
         </div>
@@ -31,7 +31,7 @@ const Welcome = () => {
           <h2>Our <h className='grad-txt'>mission.</h></h2>
           <div className='row px-5'>
             <div className='col-12 col-lg-4'>
-              <div className='mission-item'>
+              <div className='mission-item'> 
                 <h2>Wealthy</h2>
                 <p className='line'></p>
                 <p>Building wealth should be a thrilling experience!</p> 
@@ -62,7 +62,7 @@ const Welcome = () => {
           <hr className='m-4'></hr>
           <div className='row'>
             <div className='col-md-12 col-lg-2'>
-              <img src={signLogo}></img>
+              <img src={signLogo} alt="sign"></img>
             </div>
             <div className='col-md-12 col-lg-8 text-start m-auto'>
               <h2 className='grad-txt'>Buy $BKWZ.</h2>
@@ -81,12 +81,12 @@ const Welcome = () => {
               <p>Each BKWZ Avatar will provide yield on daily basis. You can claim the <br/>rewards at any time or trade your unique BKWZ Avatar on the marketplace.</p>
             </div>
             <div className='col-md-12 col-lg-2'>
-              <img src={dice}></img>
+              <img src={dice} alt="dice"></img>
             </div>
           </div>
           <div className='row'>
             <div className='col-md-12 col-lg-2'>
-              <img src={ped}></img>
+              <img src={ped} alt="ped"></img>
             </div>
             <div className='col-md-12 col-lg-8 text-start m-auto'>
               <h2 className='grad-txt'>Play & Earn.</h2>
@@ -101,22 +101,22 @@ const Welcome = () => {
           <h2>Meet our <h className='grad-txt'>team</h>.</h2>
           <div className='row px-5'>
             <div className='team-item col-sm-12 col-md-6 col-lg-3'>
-              <img src={sam}></img>
+              <img src={sam} alt="sam"></img>
               <h4>Sam</h4>
               <p>Project Director</p>
             </div>
             <div className='team-item col-sm-12 col-md-6 col-lg-3'>
-              <img src={sam}></img>
+              <img src={sam} alt="sam"></img>
               <h4>Greg</h4>
               <p>Designer</p>
             </div>
             <div className='team-item col-sm-12 col-md-6 col-lg-3'>
-              <img src={sam}></img>
+              <img src={sam} alt="sam"></img>
               <h4>Mike</h4>
               <p>Game Dev</p>
             </div>
             <div className='team-item col-sm-12 col-md-6 col-lg-3'>
-              <img src={sam}></img>
+              <img src={sam} alt="sam"></img>
               <h4>Matt</h4>
               <p>Blockchain Dev</p>
             </div>
@@ -188,4 +188,4 @@ const Welcome = () => {
   );
 };
 
-export default Welcome;
+export default Dashboard;

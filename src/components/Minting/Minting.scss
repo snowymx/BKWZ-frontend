@@ -1,0 +1,126 @@
+.minting {
+    padding: 0 3em;
+    display: block;
+    justify-content: center;
+    // align-items: center;
+    // justify-content: center;
+    // overflow: hidden;
+    .bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: url('../../assets/first_back.png');
+      background-size: cover;
+      background-position: center;
+    }
+    .container {
+        max-width: none;
+    }
+    .tran-box {
+      position: relative;
+      z-index: 9;
+      color: white;
+      text-align: center;
+      margin: 2em 0;
+      background: linear-gradient(126.6deg, rgba(0, 0, 0, 0.7) 28.69%, rgba(0, 0, 0, 0.7) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 25px;
+      padding: 1em;
+      .m-auto {
+          margin: 0 !important;
+          .mint-box {
+            margin: 1em 0;
+            padding: 1em;
+            background: linear-gradient(126.6deg, rgba(0, 0, 0, 0.7) 28.69%, rgba(0, 0, 0, 0.7) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 25px;
+            .bar {
+                height: 1px;
+                width: 100%;
+                margin: 2em 0;
+                border: 1px solid rgba(255, 255, 255, 0.4);
+            }
+            img {
+                cursor: pointer;
+            }
+            img:hover {
+                opacity: 0.8;
+            }
+            .col-number {
+                float: left;
+                width: 20%;
+            }
+            .connect-button {
+                background: linear-gradient(180deg, #ff9600 0%, #ff9600 100%);
+                border: 1px solid rgba(255, 255, 255, 0.19);
+                border-radius: 25px;
+                color: black;
+                font-size: 1.25rem;
+                font-weight: 600;
+                line-height: 2.5rem;
+                cursor: pointer;
+                width: 10em;
+                margin: auto;
+            }
+            .connect-button:hover {
+                opacity: 0.7;
+            }
+          }
+      }
+      .dice-image {
+          img {
+            min-width: 40em;
+          }
+      }
+      p {
+        font-size: 1.3em;
+      }
+      h5 {
+          font-weight: 400;
+      }
+    }
+  
+    .grad-txt {
+      // background: -webkit-linear-gradient(0deg, #BA17C6 30%, #0394C1 70%);
+      background: -webkit-linear-gradient(0deg, #D100E2 -11.59%, #0081AA 70.36%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5em;
+    }
+    
+  }
+  
+  @media (max-width: 1000px) {    
+    .gameplay {
+        .gameplay-box {
+            margin: 1em 3em;
+            .dice-image {
+                img {
+                    width: 100%;
+                    min-width: 0;
+                }
+            }
+        }
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .small-font {
+      font-size: 0.6em;
+    }
+    .gameplay {
+        .gameplay-box {
+            margin: 1em 1em;
+            .dice-image {
+                img {
+                    width: 100%;
+                    min-width: 0;
+                }
+            }
+        }
+    }
+  }
+  

@@ -23,12 +23,12 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background: #999999;
+    background: #2b2727;
     border-radius: 0;
   }
 
   &::-webkit-scrollbar-thumb:hover {
-    background: #d3d3d3;
+    background: #141414;
   }
 }
 @mixin gradient-border {
