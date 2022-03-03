@@ -8,10 +8,10 @@ const Dao = () => {
       <div className='content'>
         <div className='container'>
           <div className="gameplay-box" style={{padding: "10em 0"}}>
-            <h>COMING SOON</h>
+            <span>COMING SOON</span>
           </div>
           <div className="gameplay-box" style={{padding: "10em 0"}}>
-            <h>DEMO GAME</h>
+            <span>DEMO GAME</span>
           </div>
         </div>
       </div>

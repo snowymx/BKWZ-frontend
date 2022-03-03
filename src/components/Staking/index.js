@@ -89,7 +89,7 @@ const Staking = () => {
                 </div>
               </div>
               <div className='claim-all'>
-                <div className='available-claim'>Available to claim: <h style={{color: "#FF9600"}}> 23.222 BKWZ</h></div>
+                <div className='available-claim'>Available to claim: <span style={{color: "#FF9600"}}> 23.222 BKWZ</span></div>
                 <div className='all-claim-button'>CLAIM ALL</div>
               </div>
             </div>

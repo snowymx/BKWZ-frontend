@@ -21,7 +21,7 @@ const Minting = () => {
         <div className='container'>
           <div className='row tran-box'>
             <h2>
-              Start <h className="grad-txt">Minting</h>.
+              Start <span className="grad-txt">Minting</span>.
             </h2>
             <div className='col-12 col-md-4 m-auto'>
               <div className='mint-box'>
@@ -32,9 +32,9 @@ const Minting = () => {
                 <h5>Rarity chances are listed just below:</h5>
                 <br />
                 <h5 style={{opacity: "0.6"}}>80% chance - Common</h5>
-                <h5 style={{opacity: "0.6"}}>10% chance - <h style={{color: "#FF0707", fontWeight: "600"}}>Rare</h></h5>
-                <h5 style={{opacity: "0.6"}}>7% chance - <h style={{color: "#FF9600", fontWeight: "600"}}>Unique</h></h5>
-                <h5 style={{opacity: "0.6"}}>3% chance - <h style={{color: "#F901FF", fontWeight: "600"}}>Legendary</h></h5>
+                <h5 style={{opacity: "0.6"}}>10% chance - <span style={{color: "#FF0707", fontWeight: "600"}}>Rare</span></h5>
+                <h5 style={{opacity: "0.6"}}>7% chance - <span style={{color: "#FF9600", fontWeight: "600"}}>Unique</span></h5>
+                <h5 style={{opacity: "0.6"}}>3% chance - <span style={{color: "#F901FF", fontWeight: "600"}}>Legendary</span></h5>
               </div>
             </div>
             <div className='col-12 col-md-4 m-auto'>

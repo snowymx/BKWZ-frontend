@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './Dashboard.scss';
 import diceImage from '../../assets/DiceGroup.png';
 import signLogo from '../../assets/BWKZ_signlogo.png';
@@ -7,6 +7,24 @@ import ped from '../../assets/ped.png';
 import sam from '../../assets/Sam.png';
 
 const Dashboard = () => {
+  const [width, setWidth] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Handler to call on window resize
+    function handleResize() {
+      // Set window width/height to state
+      setWidth(window.innerWidth);
+      if(window.innerWidth < 1000) setIsMobile(true);
+      else setIsMobile(false);
+    }
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+    // Call handler right away so state gets updated with initial window size
+    handleResize();
+    // Remove event listener on cleanup
+    return () => window.removeEventListener("resize", handleResize);
+  }, []); // Empty array ensures that effect is only run on mount
   return (
     <section className='container-fluid welcome' id='welcome'>
       <div className='content'>
@@ -28,7 +46,7 @@ const Dashboard = () => {
         </div>
         </div>
         <div className='mission'>
-          <h2>Our <h className='grad-txt'>mission.</h></h2>
+          <h2>Our <span className='grad-txt'>mission.</span></h2>
           <div className='row px-5'>
             <div className='col-12 col-lg-4'>
               <div className='mission-item'> 
@@ -58,7 +76,7 @@ const Dashboard = () => {
           </div>
         </div>
         <div className='adventure'>
-          <h2>How do you begin your <h className='grad-txt'>adventure</h>? </h2>
+          <h2>How do you begin your <span className='grad-txt'>adventure</span>? </h2>
           <hr className='m-4'></hr>
           <div className='row'>
             <div className='col-md-12 col-lg-2'>
@@ -72,18 +90,33 @@ const Dashboard = () => {
             <div className='col-md-12 col-lg-2'>
             </div>
           </div>
-          <div className='row'>
-            <div className='col-md-12 col-lg-2'>
+          {isMobile?
+            <div className='row'>
+              <div className='col-md-12 col-lg-2'>
+                <img src={dice} alt="dice"></img>
+              </div>
+              <div className='col-md-12 col-lg-8 text-start m-auto'>
+                <h2 className='grad-txt'>Mint Avatars.</h2>
+                <h4>Our avatars combine everything that is beautiful about NFT’s.</h4>
+                <p>Each BKWZ Avatar will provide yield on daily basis. You can claim the <br/>rewards at any time or trade your unique BKWZ Avatar on the marketplace.</p>
+              </div>
+              <div className='col-md-12 col-lg-2'>
+              </div>
             </div>
-            <div className='col-md-12 col-lg-8 text-end m-auto'>
-              <h2 className='grad-txt'>Mint Avatars.</h2>
-              <h4>Our avatars combine everything that is beautiful about NFT’s.</h4>
-              <p>Each BKWZ Avatar will provide yield on daily basis. You can claim the <br/>rewards at any time or trade your unique BKWZ Avatar on the marketplace.</p>
+            :
+            <div className='row'>
+              <div className='col-md-12 col-lg-2'>
+              </div>
+              <div className='col-md-12 col-lg-8 text-end m-auto'>
+                <h2 className='grad-txt'>Mint Avatars.</h2>
+                <h4>Our avatars combine everything that is beautiful about NFT’s.</h4>
+                <p>Each BKWZ Avatar will provide yield on daily basis. You can claim the <br/>rewards at any time or trade your unique BKWZ Avatar on the marketplace.</p>
+              </div>
+              <div className='col-md-12 col-lg-2'>
+                <img src={dice} alt="dice"></img>
+              </div>
             </div>
-            <div className='col-md-12 col-lg-2'>
-              <img src={dice} alt="dice"></img>
-            </div>
-          </div>
+          }
           <div className='row'>
             <div className='col-md-12 col-lg-2'>
               <img src={ped} alt="ped"></img>
@@ -98,7 +131,7 @@ const Dashboard = () => {
           </div>
         </div>
         <div className='team'>
-          <h2>Meet our <h className='grad-txt'>team</h>.</h2>
+          <h2>Meet our <span className='grad-txt'>team</span>.</h2>
           <div className='row px-5'>
             <div className='team-item col-sm-12 col-md-6 col-lg-3'>
               <img src={sam} alt="sam"></img>
@@ -123,7 +156,7 @@ const Dashboard = () => {
           </div>
         </div>
         <div className='roadmap'>
-          <h2>Look at us <h className='grad-txt'>evolve</h>.</h2>
+          <h2>Look at us <span className='grad-txt'>evolve</span>.</h2>
           <div className='row px-5'>
             <div className='roadmap-item col-sm-12 col-md-6 col-lg-3'>
               <div>PHASE 1  -  Q1</div>
@@ -155,13 +188,11 @@ const Dashboard = () => {
         </div>
         <div>
           <div className='row'>
-            <div className='col-12 col-lg-4'></div>
-            <div className='col-12 col-lg-4 buy'>
-              <h2>Buy <h className='grad-txt'>$BKWZ</h>.</h2>
+            <div className='buy' style={{padding: "2em"}}>
+              <h2>Buy <span className='grad-txt'>$BKWZ</span>.</h2>
               <div>Buy on TraderJoe</div>
               <p>Comming soon!</p>
             </div>
-            <div className='col-12 col-lg-4'></div>
           </div>
         </div>
         <div className='address'>

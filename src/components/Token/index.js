@@ -9,12 +9,12 @@ const Token = () => {
       <div className='content'>
         <div className='container'>
         <div className='intro'>
-          <div className='row dice-group'>
+          <div className='row dice-group' style={{padding: "5em 0"}}>
             <img src={chartImage} alt="dice" />
           </div>
           <br />
           <br />
-          <div className='row dice-group'>
+          <div className='row dice-group' style={{padding: "5em 0"}}>
             <img src={traderjoeImage} alt="dice" />
           </div>
         </div>
