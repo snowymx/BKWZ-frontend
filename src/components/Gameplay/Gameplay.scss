@@ -75,7 +75,8 @@
     }
     .gameplay {
         .gameplay-box {
-            margin: 1em 1em;
+            margin: 1em 0em !important;
+            padding: 1em;
             .dice-image {
                 img {
                     width: 100%;

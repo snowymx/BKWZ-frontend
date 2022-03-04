@@ -120,6 +120,26 @@
       opacity: 0.8;
     }
   }
+
+  @media (max-width: 576px) {
+    .small-font {
+      font-size: 0.6em;
+    }
+    .header-content-mobile {
+      margin: 0;
+      .img-link-item {
+        img {
+          width: 124px;
+          height: 34px;
+          margin-left: -15px;
+          margin-top: -1px;
+        }
+      }
+      .connect-button {
+        right: 15px;
+      }
+    }
+  }
 }
 
 .mobile-menu {

@@ -1,5 +1,7 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Router, Switch, Route, Redirect } from "react-router-dom";
+import { connect } from 'react-redux';
+import { useSelector, useDispatch } from "react-redux";
 import history from './Utils/history';
 import Dashboard from "./Dashboard";
 import Gameplay from "./Gameplay";
@@ -13,6 +15,9 @@ import Footer from "./Layout/Footer";
 import "./App.scss";
 
 function App() {
+  useEffect(() => {
+    // onTheme('dashboard');
+  }, []);
   return (
     <div className="App">
       <Router history={history}>
@@ -47,4 +52,15 @@ function App() {
   );
 }
 
-export default App;
+// connecting view layer to state layer with react-redux
+
+const mapStateToProps = state => ({
+  theme: state.themeState
+});
+
+const mapDispatchToProps = dispatch => ({
+  onTheme: background => dispatch({ type: 'BACKGROUND_SET', background }),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+// export default App;

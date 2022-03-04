@@ -56,7 +56,6 @@
         max-width: 500px;
         margin-top: 1em;
         .available-claim {
-            width: 348px;
             float: left;
             font-size: 1.2rem;
             line-height: 1.7em;
@@ -248,6 +247,48 @@
             h4.your-avatars {
                 text-align: center;
                 margin: 0.5em 0;
+            }
+        }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .staking {
+        padding: 0 0;
+        // .stake-state {
+        //     margin: auto;
+        // }
+        .switch-button {
+            width: 100%;
+            .nft, .coin {
+                width: 50%;
+            }
+        }
+        .staked, .unstaked {
+            float: none !important;
+            margin: auto;
+            margin-right: 0 !important;
+            width: auto !important;
+        }
+        .claim-all {
+            .available-claim {
+                float: none;
+                margin: auto;
+            }
+            .all-claim-button {
+                float: none;
+                margin: 5px auto;
+            }
+        }
+        .tran-box {
+            h4.your-avatars {
+                text-align: center;
+                margin: 0.5em 0;
+            }
+            .avatars {
+                .nft-box {
+                    min-width: auto;
+                }
             }
         }
     }

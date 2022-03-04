@@ -11,6 +11,7 @@ const Dashboard = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // onTheme("dashboard");
     // Handler to call on window resize
     function handleResize() {
       // Set window width/height to state
@@ -187,12 +188,10 @@ const Dashboard = () => {
           </div>
         </div>
         <div>
-          <div className='row'>
-            <div className='buy' style={{padding: "2em"}}>
-              <h2>Buy <span className='grad-txt'>$BKWZ</span>.</h2>
-              <div>Buy on TraderJoe</div>
-              <p>Comming soon!</p>
-            </div>
+          <div className='buy' style={{padding: "2em"}}>
+            <h2>Buy <span className='grad-txt'>$BKWZ</span>.</h2>
+            <div>Buy on TraderJoe</div>
+            <p>Comming soon!</p>
           </div>
         </div>
         <div className='address'>
