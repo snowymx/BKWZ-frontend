@@ -1,9 +1,16 @@
-.App {
-    text-align: center;
-    background: url('../assets/first_back.png');
-    background-size: 100% 100%;
-    justify-content: center;
-  }
+.dashboard-back {
+  text-align: center;
+  background: url('../assets/first_back.png');
+  background-size: 100% 100%;
+  justify-content: center;
+}
+
+.minting-back {
+  text-align: center;
+  background: url('../assets/mint_back.png');
+  background-size: 100% 100%;
+  justify-content: center;
+}
 
 /* width */
 ::-webkit-scrollbar {

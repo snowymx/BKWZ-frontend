@@ -1,4 +1,5 @@
 import React from "react";
+import Backgorund from "../Background";
 import "./Gameplay.scss";
 import diceImage from "../../assets/dicegroup1.svg";
 import gameImage from "../../assets/GameImage.svg";
@@ -6,6 +7,7 @@ import gameImage from "../../assets/GameImage.svg";
 const Gameplay = () => {
   return (
     <section className="container-fluid gameplay" id="gameplay">
+      <Backgorund imageName="minting-back" />
       <div className="content">
         <div className="gameplay-box">
           <h2>

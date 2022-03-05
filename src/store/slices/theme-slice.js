@@ -1,9 +1,18 @@
- const initial_state = "";
+import { createSlice } from '@reduxjs/toolkit'
 
-  function themeReducer(state = initial_state, action) {
-    switch (action.type) {
-        default: return state;
-    }
-  }
-  
-  export default themeReducer;
+export const themeSlice = createSlice({
+  name: 'theme',
+  initialState: {
+    background: "dashboard",
+  },
+  reducers: {
+    changeBackground: (state, action) => {
+      state.background = action.payload
+    },
+  },
+})
+
+// Action creators are generated for each case reducer function
+export const { changeBackground } = themeSlice.actions
+
+export default themeSlice.reducer

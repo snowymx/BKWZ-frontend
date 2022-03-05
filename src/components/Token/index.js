@@ -1,4 +1,5 @@
 import React from 'react';
+import Backgorund from '../Background';
 import './Token.scss';
 import chartImage from '../../assets/chart.svg';
 import traderjoeImage from '../../assets/traderjoe.svg';
@@ -6,6 +7,7 @@ import traderjoeImage from '../../assets/traderjoe.svg';
 const Token = () => {
   return (
     <section className='container-fluid token' id='token'>
+      <Backgorund imageName="minting-back" />
       <div className='content'>
         <div className='container'>
         <div className='intro'>

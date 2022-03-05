@@ -1,22 +1,30 @@
 import React, {useEffect, useState} from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { increment, decrement } from '../../store/slices/counter-slice';
+import Backgorund from '../Background';
 import './Minting.scss';
 import dice from '../../assets/DICE4.png';
 import plusImage from '../../assets/plus.png';
 import minusImage from '../../assets/minus.png';
 
 const Minting = () => {
+  const count = useSelector((state) => state.counter.value);
+  const dispatch = useDispatch();
+
   const [value, setValue] = useState(1);
   const addValue = () => {
     setValue(value + 1);
+    dispatch(increment());
   }
   const subValue = () => {
     if(value === 1) return;
     setValue(value - 1);
+    dispatch(decrement());
   }
-  useEffect(() => {
-  }, []); 
+
   return (
     <section className='container-fluid minting' id='minting'>
+      <Backgorund imageName="minting-back" />
       <div className='content'>
         <div className='container'>
           <div className='row tran-box'>
@@ -57,7 +65,7 @@ const Minting = () => {
                     <img src={minusImage} alt="minus" onClick={subValue} />
                   </div>
                   <div className='col-number'>
-                    <h4>{value}</h4>
+                    <h4>{count}</h4>
                   </div>
                   <div className='col-number'>
                     <img src={plusImage} alt="plus" onClick={addValue} />

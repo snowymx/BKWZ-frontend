@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import Backgorund from '../Background';
 import './Dashboard.scss';
 import diceImage from '../../assets/DiceGroup.png';
 import signLogo from '../../assets/BWKZ_signlogo.png';
@@ -7,27 +8,21 @@ import ped from '../../assets/ped.png';
 import sam from '../../assets/Sam.png';
 
 const Dashboard = () => {
-  const [width, setWidth] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // onTheme("dashboard");
-    // Handler to call on window resize
     function handleResize() {
-      // Set window width/height to state
-      setWidth(window.innerWidth);
       if(window.innerWidth < 1000) setIsMobile(true);
       else setIsMobile(false);
     }
-    // Add event listener
     window.addEventListener("resize", handleResize);
-    // Call handler right away so state gets updated with initial window size
     handleResize();
-    // Remove event listener on cleanup
     return () => window.removeEventListener("resize", handleResize);
   }, []); // Empty array ensures that effect is only run on mount
+
   return (
     <section className='container-fluid welcome' id='welcome'>
+      <Backgorund imageName="dashboard-back" />
       <div className='content'>
       <div className='container'>
         <div className='intro'>

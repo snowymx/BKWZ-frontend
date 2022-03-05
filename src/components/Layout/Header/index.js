@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { Link } from "react-router-dom";
+import { useDispatch } from 'react-redux';
 import history from "../../Utils/history";
 import './header.scss';
 import logoImg from '../../../assets/logo.png';
@@ -7,6 +8,7 @@ import listImg from '../../../assets/menu.svg';
 import closeImg from '../../../assets/close.svg';
 
 const Header = () => {
+  const dispatch = useDispatch();
   const [path, setPath] = useState("/");
   const [menuStyle, setMenuStyle] = useState({width: "", height: "", top: ""});
   const [isMobile, setIsMobile] = useState(false);
@@ -21,7 +23,7 @@ const Header = () => {
   useEffect(() => {
     // Handler to call on window resize
     function handleResize() {
-      if(window.innerWidth > 1000) setIsMobile(true);
+      if(window.innerWidth > 1120) setIsMobile(true);
       else setIsMobile(false);
     }
     // Add event listener
@@ -48,7 +50,6 @@ const Header = () => {
   }
 
   const offMenu = () => {
-    console.log(showMenu);
     setShowMenu(false);
   }
 
