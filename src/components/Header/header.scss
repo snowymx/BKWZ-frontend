@@ -1,0 +1,87 @@
+.dapp-topbar {
+  width: 89%;
+  align-items: center;
+  margin: auto;
+  margin-top: 7px;
+  padding: 0 20px;
+  background-color: black;
+  border-radius: 20px;
+
+  .dapp-topbar-slider-btn{
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 0px 10px rgba(44, 39, 109, 0.1);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-right: 16px;
+  }
+
+  .dapp-topbar-btns-wrap{
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+
+  .dapp-topbar-links-wrap{
+    display: none;
+    img {
+      height: 46px;
+      margin-top: 3px
+    }
+    img:hover {
+      transform: scale(1.05);
+      transition: all 0.3s linear;
+    }
+    a {
+      text-decoration: none;
+      color: white;
+        .link-item {
+        width: 90px;
+        text-align: center;
+        font-size: 17px;
+        line-height: 30px;
+        margin: 12px auto;
+        border-radius: 15px;
+        font-weight: 600;
+      }
+      .link-item:hover {
+        background-color: #ff9600;
+        transition: background-color 0.3s linear;
+        color: black;
+        font-weight: bold;
+      }
+    }
+    a.active {
+      color: #ff9600;
+      font-weight: bold;
+      .link-item:hover {
+        background: transparent;
+        color: #ff9600;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  .dapp-topbar{
+    .dapp-topbar-links-wrap{
+      img {
+        margin-left: 30px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .dapp-topbar{
+    .dapp-topbar-slider-btn, .dapp-topbar-btns-wrap{
+      display: none;
+    }
+    .dapp-topbar-links-wrap {
+      display: flex;
+    }
+  }
+}
