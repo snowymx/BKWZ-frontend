@@ -20,6 +20,8 @@
 .connect-button:hover {
   background-color: #ff9600;
   transition: background-color 0.3s linear;
-  color: black;
   font-weight: bold;
+  p:hover {
+    color: black;
+  }
 }

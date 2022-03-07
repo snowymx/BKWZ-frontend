@@ -21,7 +21,8 @@ function ConnectMenu() {
     let buttonStyle = {};
 
     if (isConnected) {
-        buttonText = "Disconnect";
+        buttonText = "CONNECTED";
+        buttonStyle = { color: "#ff9600" }
         clickFunc = disconnect;
     }
 

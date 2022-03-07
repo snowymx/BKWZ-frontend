@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Grid, Zoom } from "@material-ui/core";
 import "../Staking.scss";
-import { nft1 } from "../../../constants/img";
 import classNames from "classnames";
 import StakingNFT from "./StakingNFT";
 import UnStakingNFT from "./UnStakingNFT";
@@ -14,13 +13,13 @@ function NftStaking() {
 
     return (
         <Zoom in={true}>
-            <div className="row tran-box">
+            <div className="tran-box">
                 <div className="stake-state">
                     <div className={classNames("staked", { active: staking })} onClick={() => onStaking(true) }>
                         STAKED - 7
                     </div>
                     <div className={classNames("unstaked", { active: !staking })} onClick={() => onStaking(false)}>
-                        UNSTAKED - 3
+                        UNSTAKED - 1
                     </div>
                 </div>
                 {staking && <StakingNFT />}

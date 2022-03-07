@@ -29,6 +29,7 @@
         cursor: pointer;
         height: 32px;
         text-align: center;
+        margin-top: 15px;
         .nft {
             width: 200px;
             color: white;        
@@ -71,12 +72,31 @@
             color: black;
             float: right;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: bolder;
         }  
         .all-claim-button:hover {
             opacity: 0.7;
         }
       }
+    
+    .stake-all {
+        height: 35px;
+        .stake-all-button {
+            width: 300px;
+            background: linear-gradient(126.6deg, rgba(0, 0, 0, 0.7) 28.69%, rgba(0, 0, 0, 0.7) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 25px;
+            margin: 0.5em auto;
+            font-size: 1.25rem;
+            font-weight: bolder;
+            line-height: 2em;
+            cursor: pointer;
+        }
+        .stake-all-button:hover {
+            background: linear-gradient(180deg, #ff9600 0%, #ff9600 100%);
+            color: black;
+        }
+    }
     .tran-box {
       position: relative;
       z-index: 9;
@@ -151,6 +171,32 @@
             .nft-button:hover {
                 background: linear-gradient(180deg, #ff9600 0%, #ff9600 100%);
                 color: black;
+            }
+            h5.gray {
+                opacity: 0.8;
+            }
+            h5.rarity-common:after {
+                font-weight: bolder;
+                content: "Common";
+            }
+            h5.rarity-rare:after {
+                color: #FF0707;
+                font-weight: bolder;
+                content: "Rare";
+            }
+            h5.rarity-unique:after {
+                color: #01F19A;
+                font-weight: bolder;
+                content: "Unique";
+            }
+            h5.rarity-legendary:after {
+                color: #EC01F1;
+                font-weight: bolder;
+                content: "Legendary";
+            }
+            h5.yellow-bold {
+                color: #FF9600;
+                font-weight: bolder;
             }
           }
       }
