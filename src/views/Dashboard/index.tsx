@@ -1,4 +1,4 @@
-import { Grid, Zoom } from "@material-ui/core";
+import { Grid, Zoom, useMediaQuery } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import classnames from "classnames";
 import "./Dashboard.scss";
@@ -8,10 +8,15 @@ const useStyles = makeStyles(theme => ({
     textStart: {
         textAlign: "left",
     },
+    textEnd: {
+        textAlign: "right",
+    },
 }));
 
 function Dashboard() {
     const classes = useStyles();
+    const isSmallerScreen = useMediaQuery("(max-width: 960px)");
+
     return (
         <section className="container-fluid welcome" id="welcome">
             <div className="content">
@@ -83,11 +88,12 @@ function Dashboard() {
                                 <h4>The currency of Blockways</h4>
                                 <p>
                                     BKWZ Token is the in-game currency and your “entry ticket” to the game.
-                                    <br /> Buy it from the market or buy it at a discount on the dApp against listed tokens
+                                    Buy it from the market or buy it at a discount on the dApp against listed tokens
                                 </p>
                             </Grid>
                         </Grid>
                         <br />
+                        {isSmallerScreen?
                         <Grid container spacing={3}>
                             <Grid item sm={12} md={3} lg={2} container>
                                 <Grid item sm={3} xs={2} container></Grid>
@@ -97,14 +103,32 @@ function Dashboard() {
                                 <Grid item xs={2} sm={3} container></Grid>
                             </Grid>
                             <Grid item sm={12} md={7} lg={5} className={classes.textStart}>
-                                <h2><span className="grad-txt">Buy $BKWZ.</span></h2>
-                                <h4>The currency of Blockways</h4>
+                                <h2><span className="grad-txt">Mint Avatars.</span></h2>
+                                <h4>Our avatars combine everything that is beautiful about NFT’s.</h4>
                                 <p>
-                                    BKWZ Token is the in-game currency and your “entry ticket” to the game.
-                                    <br /> Buy it from the market or buy it at a discount on the dApp against listed tokens
+                                Each BKWZ Avatar will provide yield on daily basis. You can claim the rewards at any time or trade your unique BKWZ Avatar on the marketplace.
                                 </p>
                             </Grid>
                         </Grid>
+                        :
+                        <Grid container spacing={3}>
+                            <Grid item md={2} lg={4}></Grid>
+                            <Grid item sm={12} md={7} lg={6} className={classes.textEnd}>
+                                <h2><span className="grad-txt">Mint Avatars.</span></h2>
+                                <h4>Our avatars combine everything that is beautiful about NFT’s.</h4>
+                                <p>
+                                Each BKWZ Avatar will provide yield on daily basis. You can claim the rewards at any time or trade your unique BKWZ Avatar on the marketplace.
+                                </p>
+                            </Grid>
+                            <Grid item sm={12} md={3} lg={2} container>
+                                <Grid item sm={3} xs={2} container></Grid>
+                                <Grid item md={12} sm={6}  xs={8} container>
+                                    <img src={dice} alt="dice" style={{width: "80%", margin: "auto"}}></img>
+                                </Grid>
+                                <Grid item xs={2} sm={3} container></Grid>
+                            </Grid>
+                        </Grid>
+                        }
                         <br />
                         <Grid container spacing={3}>
                             <Grid item sm={12} md={3} lg={2} container>
@@ -115,11 +139,10 @@ function Dashboard() {
                                 <Grid item xs={2} sm={3} container></Grid>
                             </Grid>
                             <Grid item sm={12} md={7} lg={5} className={classes.textStart}>
-                                <h2><span className="grad-txt">Buy $BKWZ.</span></h2>
-                                <h4>The currency of Blockways</h4>
+                                <h2><span className="grad-txt">Play & Earn.</span></h2>
+                                <h4>Earning whilst genuinely having fun!</h4>
                                 <p>
-                                    BKWZ Token is the in-game currency and your “entry ticket” to the game.
-                                    <br /> Buy it from the market or buy it at a discount on the dApp against listed tokens
+                                Use your imagination, come up with the best strategy and become the best at blocking your opponents way! 
                                 </p>
                             </Grid>
                         </Grid>
