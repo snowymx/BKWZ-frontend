@@ -97,10 +97,9 @@
         cursor: pointer;
         .staked {
             margin-top: 10px;
-            background: linear-gradient(180deg, #ff9600 0%, #ff9600 100%);
             border: 1px solid rgba(255, 255, 255, 0.19);
             border-radius: 25px;
-            color: black;
+            color: white;
             font-size: 1.6rem;
             font-weight: 600;
             width: 270px;
@@ -122,6 +121,10 @@
         }
         .unstaked:hover {
             opacity: 0.7;
+        }
+        .active {
+            background: linear-gradient(180deg, #ff9600 0%, #ff9600 100%);
+            color: black;
         }
       }
       .avatars {

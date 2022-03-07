@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import classnames from "classnames";
 import "./Dashboard.scss";
 import {dice, diceGroup, signlogo, ped} from "../../constants/img"
+import { useEffect } from "react";
 
 const useStyles = makeStyles(theme => ({
     textStart: {
@@ -16,6 +17,11 @@ const useStyles = makeStyles(theme => ({
 function Dashboard() {
     const classes = useStyles();
     const isSmallerScreen = useMediaQuery("(max-width: 960px)");
+
+    // useEffect(() => {
+    //     var position:any = document.querySelector("#root-child");
+    //     position.scrollTop = 0;
+    // }, []);
 
     return (
         <section className="container-fluid welcome" id="welcome">
