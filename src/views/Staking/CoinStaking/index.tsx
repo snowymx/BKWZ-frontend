@@ -9,7 +9,7 @@ function CoinStaking() {
   }
   return (
         <Zoom in={true}>
-            <div className='row tran-box' style={{padding: "20em 0"}}>
+            <div className='coin-staking-box' style={{padding: "20em 0"}}>
                 <h4>Coin Staking</h4>
             </div>
         </Zoom>
