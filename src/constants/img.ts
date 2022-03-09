@@ -1,3 +1,4 @@
+
 import diceImg from "../assets/image/dice.png";
 import diceGroupImg from "../assets/image/diceGroup.png";
 import signlogoImg from "../assets/image/signlogo.png";
@@ -14,6 +15,7 @@ import discordImg from "../assets/image/discord.png";
 import telegramImg from "../assets/image/telegram.png";
 import youtubeImg from "../assets/image/youtube.png";
 import mediumImg from "../assets/image/medium.png";
+import avaxImg from "../assets/image/avax.png";
 
 export const dice = diceImg;
 export const diceGroup = diceGroupImg;
@@ -31,3 +33,4 @@ export const discord = discordImg;
 export const telegram = telegramImg;
 export const youtube = youtubeImg;
 export const medium = mediumImg;
+export const avax = avaxImg;

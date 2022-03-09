@@ -48,6 +48,7 @@
                 width: 260px;
             }
             .dice-group {
+                backdrop-filter: blur(10px);
                 img {
                     background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%);
                     border: 1px solid rgba(255, 255, 255, 0.19);
@@ -59,6 +60,7 @@
         }
     }
     .mission {
+        backdrop-filter: blur(10px);
         position: relative;
         z-index: 9;
         color: white;
@@ -86,6 +88,7 @@
         }
     }
     .adventure {
+        backdrop-filter: blur(10px);
         position: relative;
         z-index: 9;
         color: white;
@@ -105,6 +108,7 @@
         }
     }
     .team {
+        backdrop-filter: blur(10px);
         position: relative;
         z-index: 9;
         color: white;
@@ -137,6 +141,7 @@
         }
     }
     .roadmap {
+        backdrop-filter: blur(10px);
         position: relative;
         z-index: 9;
         color: white;
@@ -166,6 +171,7 @@
         }
     }
     .buy {
+        backdrop-filter: blur(10px);
         position: relative;
         z-index: 9;
         color: white;
@@ -192,6 +198,7 @@
     }
     .address {
         position: relative;
+        backdrop-filter: blur(10px);
         z-index: 9;
         color: white;
         text-align: center;
