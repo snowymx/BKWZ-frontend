@@ -42,15 +42,15 @@ function Minting() {
                                         <br />
                                         <h5>Rarity chances are listed just below:</h5>
                                         <br />
-                                        <h5 style={{ opacity: "0.6" }}>80% chance - Common</h5>
-                                        <h5 style={{ opacity: "0.6" }}>
-                                            10% chance - <span style={{ color: "#FF0707" }}>Rare</span>
+                                        <h5 style={{ opacity: "0.9" }}>80% chance - <span style={{ fontWeight: "bolder" }}>Common</span></h5>
+                                        <h5 style={{ opacity: "0.9" }}>
+                                            10% chance - <span style={{ color: "#FF0707", fontWeight: "bolder" }}>Rare</span>
                                         </h5>
-                                        <h5 style={{ opacity: "0.6" }}>
-                                            7% chance - <span style={{ color: "#FF9600" }}>Unique</span>
+                                        <h5 style={{ opacity: "0.9" }}>
+                                            7% chance - <span style={{ color: "#FF9600", fontWeight: "bolder" }}>Unique</span>
                                         </h5>
-                                        <h5 style={{ opacity: "0.6" }}>
-                                            3% chance - <span style={{ color: "#F901FF" }}>Legendary</span>
+                                        <h5 style={{ opacity: "0.9" }}>
+                                            3% chance - <span style={{ color: "#F901FF", fontWeight: "bolder" }}>Legendary</span>
                                         </h5>
                                     </div>
                                 </Grid>
