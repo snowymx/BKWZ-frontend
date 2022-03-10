@@ -15,11 +15,11 @@ function Root() {
     const ScrollToTop = withRouter(_ScrollToTop);
 
     const app = () => (
-        <BrowserRouter>
+        <HashRouter>
             <ScrollToTop>
                 <App />
             </ScrollToTop>
-        </BrowserRouter>
+        </HashRouter>
     );
 
     return app();
