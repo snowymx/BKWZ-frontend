@@ -133,10 +133,10 @@ function Header({ handleDrawerToggle, drawe }: IHeader) {
                                 </Link>
                             </Grid>
                         </Grid>
-                        <Grid item xs={2}>
+                        <Grid item xs={2} className="img-grid">
                             <Link
                                 component={NavLink}
-                                to="/dashboard"
+                                to="/dashboard"                                
                             >
                                 <img src={logoIcon} alt="" />
                             </Link>

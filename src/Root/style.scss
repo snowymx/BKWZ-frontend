@@ -54,6 +54,10 @@ p{
   margin: 0;
 }
 
+.tran-box {
+  backdrop-filter: blur(10px);
+}
+
 .web3modal-modal-lightbox{
   z-index: 10 !important;
   background: rgba(0, 0, 0, 0.2) !important;

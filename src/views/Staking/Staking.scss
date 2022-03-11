@@ -1,5 +1,5 @@
 .staking {
-    padding: 0 3em;
+    padding: 0;
     display: block;
     justify-content: center;
     // align-items: center;
@@ -17,6 +17,70 @@
     .container {
         max-width: none;
     }
+
+    .coin-staking-box {
+        display: flex;
+        overflow-x: scroll;
+        position: relative;
+        z-index: 9;
+        color: white;
+        text-align: center;
+        margin-top: 2em;
+        padding: 2em;
+        background: linear-gradient(126.6deg, rgba(0, 0, 0, 0.7) 28.69%, rgba(0, 0, 0, 0.7) 100%);
+        backdrop-filter: blur(10px);
+        .coin-box {
+            min-width: 400px;
+            padding: 0.5em;
+            margin: 0.5em;
+            background: linear-gradient(126.6deg, rgba(0, 0, 0, 0.7) 28.69%, rgba(0, 0, 0, 0.7) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 25px;
+            float: left;
+            img {
+                width: 100%;
+            }
+            h5 {
+                font-weight: 400;
+            }
+            h5.number {
+                font-weight: bolder;
+                font-size: 1.7rem;
+            }
+            h5.short {
+                font-size: 1rem;
+            }
+            h5.short-number {
+                font-size: 1rem;
+                font-weight: bold;
+                letter-spacing: 2px;
+            }
+            h5.yellow-bold {
+                color: #FF9600;
+                font-size: 1.3rem;
+            }
+            hr {
+                width: 65%;
+                margin-top: 18px;
+            }
+            .coin-button {
+                width: 200px;
+                background: linear-gradient(126.6deg, rgba(0, 0, 0, 0.7) 28.69%, rgba(0, 0, 0, 0.7) 100%);
+                border: 1px solid rgba(255, 255, 255, 0.4);
+                border-radius: 25px;
+                margin: 0.9em auto;
+                font-size: 1.2rem;
+                font-weight: 900;
+                cursor: pointer;
+                line-height: 32px;
+                height: 35px;
+            }
+            .coin-button:hover {
+                background: linear-gradient(180deg, #ff9600 0%, #ff9600 100%);
+                color: black;
+            }
+        }
+    }
     
     .switch-button {
         background: linear-gradient(126.6deg, rgba(0, 0, 0, 0.7) 28.69%, rgba(0, 0, 0, 0.7) 100%);
@@ -29,6 +93,7 @@
         cursor: pointer;
         height: 32px;
         text-align: center;
+        margin-top: 15px;
         .nft {
             width: 200px;
             color: white;        
@@ -71,18 +136,37 @@
             color: black;
             float: right;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: bolder;
         }  
         .all-claim-button:hover {
             opacity: 0.7;
         }
       }
+    
+    .stake-all {
+        height: 35px;
+        .stake-all-button {
+            width: 300px;
+            background: linear-gradient(126.6deg, rgba(0, 0, 0, 0.7) 28.69%, rgba(0, 0, 0, 0.7) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 25px;
+            margin: 0.5em auto;
+            font-size: 1.25rem;
+            font-weight: bolder;
+            line-height: 2em;
+            cursor: pointer;
+        }
+        .stake-all-button:hover {
+            background: linear-gradient(180deg, #ff9600 0%, #ff9600 100%);
+            color: black;
+        }
+    }
     .tran-box {
       position: relative;
       z-index: 9;
       color: white;
       text-align: center;
-      margin: 2em 0;
+      margin: 2em 3em;
       background: linear-gradient(126.6deg, rgba(0, 0, 0, 0.7) 28.69%, rgba(0, 0, 0, 0.7) 100%);
       border: 1px solid rgba(255, 255, 255, 0.4);
       border-radius: 25px;
@@ -97,10 +181,9 @@
         cursor: pointer;
         .staked {
             margin-top: 10px;
-            background: linear-gradient(180deg, #ff9600 0%, #ff9600 100%);
             border: 1px solid rgba(255, 255, 255, 0.19);
             border-radius: 25px;
-            color: black;
+            color: white;
             font-size: 1.6rem;
             font-weight: 600;
             width: 270px;
@@ -123,6 +206,10 @@
         .unstaked:hover {
             opacity: 0.7;
         }
+        .active {
+            background: linear-gradient(180deg, #ff9600 0%, #ff9600 100%);
+            color: black;
+        }
       }
       .avatars {
           display: flex;
@@ -140,14 +227,42 @@
                 background: linear-gradient(126.6deg, rgba(0, 0, 0, 0.7) 28.69%, rgba(0, 0, 0, 0.7) 100%);
                 border: 1px solid rgba(255, 255, 255, 0.4);
                 border-radius: 25px;
-                margin: 0.5em auto;
-                font-size: 1.25rem;
-                font-weight: 500;
+                margin: 0.9em auto;
+                font-size: 1.2rem;
+                font-weight: 900;
                 cursor: pointer;
+                line-height: 32px;
+                height: 35px;
             }
             .nft-button:hover {
                 background: linear-gradient(180deg, #ff9600 0%, #ff9600 100%);
                 color: black;
+            }
+            h5.gray {
+                opacity: 0.8;
+            }
+            h5.rarity-common:after {
+                font-weight: bolder;
+                content: "Common";
+            }
+            h5.rarity-rare:after {
+                color: #FF0707;
+                font-weight: bolder;
+                content: "Rare";
+            }
+            h5.rarity-unique:after {
+                color: #01F19A;
+                font-weight: bolder;
+                content: "Unique";
+            }
+            h5.rarity-legendary:after {
+                color: #EC01F1;
+                font-weight: bolder;
+                content: "Legendary";
+            }
+            h5.yellow-bold {
+                color: #FF9600;
+                font-weight: bolder;
             }
           }
       }
@@ -249,6 +364,7 @@
             }
         }
         .tran-box {
+            margin: 2em 1em;
             h4.your-avatars {
                 text-align: center;
                 margin: 0.5em 0;
@@ -267,7 +383,7 @@
         //     margin: auto;
         // }
         .switch-button {
-            width: 100%;
+            width: 95%;
             .nft, .coin {
                 width: 50%;
             }

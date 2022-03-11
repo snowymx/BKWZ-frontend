@@ -11,6 +11,7 @@
       border: 1px solid rgba(255, 255, 255, 0.4);
       border-radius: 25px;
       padding: 3em;
+      backdrop-filter: blur(10px);
       .dice-image {
           img {
             min-width: 40em;
@@ -61,7 +62,7 @@
     }
     .gameplay {
         .gameplay-box {
-            margin: 1em 0em !important;
+            margin: 1em 1em !important;
             padding: 1em;
             .dice-image {
                 img {

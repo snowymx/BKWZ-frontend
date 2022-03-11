@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./view-base.scss";
 import Header from "../Header";
 import Footer from "../Footer";
@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
         },
     },
     content: {
-        padding: theme.spacing(1),
+        padding: theme.spacing(0),
         transition: theme.transitions.create("margin", {
             easing: theme.transitions.easing.sharp,
             duration: TRANSITION_DURATION,
@@ -57,7 +57,7 @@ function ViewBase({ children }: IViewBaseProps) {
                     <MobileDrawer mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
                 </Hidden>
             </div>
-            <div className={`${classes.content} ${isSmallerScreen && classes.contentShift}`}>
+            <div className={`${classes.content} ${isSmallerScreen && classes.contentShift}`} id="root-child">
                 {children}
                 <Footer />
             </div>

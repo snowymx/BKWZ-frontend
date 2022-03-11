@@ -6,6 +6,7 @@
         border-radius: 20px;
         margin: 12px auto;
         line-height: 30px;
+        padding: 0 10px;
 
     .connect-button-progress{
       margin-left: 10px;
@@ -20,6 +21,14 @@
 .connect-button:hover {
   background-color: #ff9600;
   transition: background-color 0.3s linear;
-  color: black;
   font-weight: bold;
+  p:hover {
+    color: black;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .connect-button p {
+    font-size: 14px;
+  }
 }

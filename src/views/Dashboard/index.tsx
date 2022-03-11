@@ -1,8 +1,10 @@
-import { Grid, Zoom, useMediaQuery } from "@material-ui/core";
+import { NavLink } from "react-router-dom";
+import { Grid, Zoom, useMediaQuery, Link } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import classnames from "classnames";
 import "./Dashboard.scss";
 import {dice, diceGroup, signlogo, ped} from "../../constants/img"
+import { useEffect } from "react";
 
 const useStyles = makeStyles(theme => ({
     textStart: {
@@ -71,10 +73,10 @@ function Dashboard() {
                 </Zoom>
                 <Zoom in={true}>
                     <div className="adventure">
-                        <h2>
+                        <h2 style={{marginBottom: "1em"}}>
                             How do you begin your <span className="grad-txt">adventure</span>?{" "}
                         </h2>
-                        <hr className="m-4"></hr>
+                        <hr className="m-4" style={{width: "60%"}}></hr>
                         <Grid container>
                             <Grid item sm={12} md={3} lg={2} container>
                                 <Grid item sm={3} xs={2} container></Grid>
@@ -218,32 +220,21 @@ function Dashboard() {
                             <h2>
                                 Buy <span className="grad-txt">$BKWZ</span>.
                             </h2>
-                            <div>Buy on TraderJoe</div>
-                            <p>Comming soon!</p>
+                            <Link href="https://traderjoexyz.com/home" target="_blank">
+                                <div className="buy-button">Buy on TraderJoe</div>
+                            </Link>
+                            <p>Comming soon...</p>
                         </div>
                     </div>
                 </Zoom>
                 <Zoom in={true}>
                     <div className="address">
                         <div className="row">
-                            <div className="col-lg-1">
-                                <img src={dice} alt="logo" />
-                            </div>
-                            <div className="col-lg-11">
-                                <p>
-                                    Token Contract address: <span className="small-font">0xab5231d197AC42123d346f4EB70C703F308D1E0x234</span>{" "}
-                                </p>
-                            </div>
+                            <span><img src={dice} alt="logo" style={{transform: "scale(0.9)"}} /><p>Token Contract address: 0xab5231d197AC42123d346f4EB70C703F308D1E0x234</p></span>
                         </div>
+                        <br />
                         <div className="row">
-                            <div className="col-lg-1">
-                                <img src={dice} alt="logo" />
-                            </div>
-                            <div className="col-lg-11">
-                                <p>
-                                    Avatar Contract address: <span className="small-font">0x8927985B358692815E18F2138964679DcA231fds5ds3</span>
-                                </p>
-                            </div>
+                            <span><img src={signlogo} alt="logo" /><p>Avatar Contract address: 0x8927985B358692815E18F2138964679DcA231fds5ds3</p></span>
                         </div>
                     </div>
                 </Zoom>
