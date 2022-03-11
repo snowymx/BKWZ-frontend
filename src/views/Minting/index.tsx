@@ -78,8 +78,9 @@ function Minting() {
                                         </div>
                                         <h4>Cost {value / 2} AVAX</h4>
                                         <br />
-                                        {!address && (<div className="connect-button" onClick={connect}>CONNECT WALLET</div>)}
-                                        {address && (<div className="connect-button" onClick={onMint}>Coming soon</div>)}
+                                        {/* {!address && (<div className="connect-button" onClick={connect}>CONNECT WALLET</div>)}
+                                        {address && (<div className="connect-button" onClick={onMint}>Coming soon</div>)} */}
+                                        <div className="connect-button" onClick={onMint}>COMING SOON</div>
                                     </div>
                                 </Grid>
                             </Grid>

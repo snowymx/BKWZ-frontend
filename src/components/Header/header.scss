@@ -71,9 +71,10 @@
   .dapp-topbar{
     .dapp-topbar-links-wrap{
       img {
-        margin-left: 40px;
-        height: 46px;
-        margin-top: 3px;
+        margin: auto;
+        display: flex;
+        height: 50px;
+        /* margin-top: 3px; */
         width: auto;
       }
     }
