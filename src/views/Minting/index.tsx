@@ -1,12 +1,27 @@
 import {useState} from 'react';
+import { useSelector, useDispatch } from "react-redux";
 import { Grid, Zoom } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
+import { Skeleton } from "@material-ui/lab";
 import { useWeb3Context } from "../../hooks";
+import { IReduxState } from "../../store/slices/state.interface";
+import { IPendingTxn, isPendingTxn, txnButtonText } from "../../store/slices/pending-txns-slice";
+import { changeApproval, changeMint } from "../../store/slices/mint-thunk";
 import "./Minting.scss";
 import { dice, plus, minus } from "../../constants/img";
 
 function Minting() {
+    const dispatch = useDispatch();
     const { provider, address, connect, chainID, checkWrongNetwork } = useWeb3Context();
+
+    const pendingTransactions = useSelector<IReduxState, IPendingTxn[]>(state => {
+        return state.pendingTransactions;
+    });
+
+    const totalSupply = useSelector<IReduxState, number>(state => {
+        return state.app.totalSupply;
+    });
+
     const [value, setValue] = useState(1);
     const addValue = () => {
         setValue(value + 1);
@@ -16,9 +31,23 @@ function Minting() {
         setValue(value - 1);
     }
 
+    const onSeekApproval = async (token: string) => {
+        if (await checkWrongNetwork()) return;
+
+        await dispatch(changeApproval({ address, token, provider, networkID: chainID }));
+    };
+
     const onMint = async () => {
         if (await checkWrongNetwork()) return;
+        await dispatch(changeMint({ address, value: String(value), provider, networkID: chainID }));
     };
+
+    const StyledSkeleton = withStyles({
+        root: {
+          background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+          height: "50px",
+        },
+      })(Skeleton);
 
     return (
         <section className="container-fluid minting" id="minting">
@@ -61,7 +90,7 @@ function Minting() {
                                         <h5 style={{ opacity: "0.6" }}>Chance for a common: 80%</h5>
                                     </div>
                                     <div className="mint-box">
-                                        <h4>Minted - 0 / 1000</h4>
+                                        {totalSupply? <h4>Minted - {+totalSupply} / 1000</h4> : <Skeleton className='style-skeleton' height={50} width={'80%'} />}
                                     </div>
                                 </Grid>
                                 <Grid item xs={12} md={6} lg={4} className="m-auto">
@@ -78,9 +107,17 @@ function Minting() {
                                         </div>
                                         <h4>Cost {value / 2} AVAX</h4>
                                         <br />
-                                        {/* {!address && (<div className="connect-button" onClick={connect}>CONNECT WALLET</div>)}
-                                        {address && (<div className="connect-button" onClick={onMint}>Coming soon</div>)} */}
-                                        <div className="connect-button" onClick={onMint}>COMING SOON</div>
+                                        {!address && (<div className="connect-button" onClick={connect}>CONNECT WALLET</div>)}
+                                        {address && (
+                                            <div className="connect-button" onClick={() => {
+                                                if (isPendingTxn(pendingTransactions, "purchasing")) return;
+                                                onMint();
+                                            }}
+                                            >
+                                                Mint
+                                            </div>
+                                        )}
+                                        {/* <div className="connect-button" onClick={onMint}>COMING SOON</div> */}
                                     </div>
                                 </Grid>
                             </Grid>

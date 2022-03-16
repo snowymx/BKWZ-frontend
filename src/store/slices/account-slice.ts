@@ -123,6 +123,9 @@ export interface IAccountSlice {
         mim: number;
         trim: number;
     };
+    mint: {
+        mim: number;
+    };
 }
 
 const initialState: IAccountSlice = {
@@ -130,6 +133,7 @@ const initialState: IAccountSlice = {
     balances: { mim: "", trim: "", amim: "", claimable: "" },
     tokens: {},
     presale: { mim: 0, trim: 0 },
+    mint: { mim: 0 },
 };
 
 const accountSlice = createSlice({

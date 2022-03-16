@@ -28,6 +28,10 @@ export const getPresaleTypeText = (action: string) => {
     return action.toLowerCase() === "purchase" ? "Purchasing TRIM" : "claiming TRIM";
 };
 
+export const getMintTypeText = () => {
+    return "Minting Avatar";
+};
+
 export const isPendingTxn = (pendingTransactions: IPendingTxn[], type: string) => {
     return pendingTransactions.map(x => x.type).includes(type);
 };

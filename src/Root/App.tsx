@@ -71,7 +71,7 @@ function App() {
         }
     }, [connected]);
 
-    // if (isAppLoading) return <Loading />;
+    if (isAppLoading) return <Loading />;
 
     return (
         <ViewBase>

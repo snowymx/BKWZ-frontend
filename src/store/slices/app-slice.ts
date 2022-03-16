@@ -1,6 +1,6 @@
 import { ethers } from "ethers";
 import { getAddresses } from "../../constants";
-import { TrimTokenContract, PresaleContract } from "../../abi";
+import { TrimTokenContract, PresaleContract, AvatarNftContract } from "../../abi";
 import { setAll } from "../../helpers";
 import { createSlice, createSelector, createAsyncThunk } from "@reduxjs/toolkit";
 import { JsonRpcProvider } from "@ethersproject/providers";
@@ -26,12 +26,18 @@ export const loadAppDetails = createAsyncThunk(
         const currentBlockTime = (await provider.getBlock(currentBlock)).timestamp;
         const trimContract = new ethers.Contract(addresses.TRIM_ADDRESS, TrimTokenContract, provider);
         const presaleContract = new ethers.Contract(addresses.PRESALE_ADDRESS, PresaleContract, provider);
+        /////////////////////////////////////////////
+        const avatarNftContract = new ethers.Contract(addresses.AVATARNFT_ADDRESS, AvatarNftContract, provider);
 
         const maxMimLimitPublic = await presaleContract.MAX_MIM_LIMIT_PUBLIC();
         const priceTrimPublic = await presaleContract.PRICE_TRIM_PUBLIC();
         const mimRaised = await presaleContract.mimRaised();
         const totalpTokenAmountToDistribute = await presaleContract.totalpTokenAmountToDistribute();
         const closingTimeStamp = await presaleContract.closingTime();
+
+        //////////////////////////////////////////// new start
+        const totalSupply = await avatarNftContract.totalSupply();
+
 
         return {
             currentBlock,
@@ -41,6 +47,7 @@ export const loadAppDetails = createAsyncThunk(
             maxMimLimitPublic: Number(ethers.utils.formatUnits(maxMimLimitPublic)),
             mimRaised: Number(ethers.utils.formatUnits(mimRaised)),
             totalpTokenAmountToDistribute: Number(ethers.utils.formatUnits(totalpTokenAmountToDistribute, "gwei")),
+            totalSupply,
         };
     },
 );
@@ -59,6 +66,7 @@ export interface IAppSlice {
     mimRaised: number;
     totalpTokenAmountToDistribute: number;
     closingTimeStamp: number;
+    totalSupply: number;
 }
 
 const appSlice = createSlice({
