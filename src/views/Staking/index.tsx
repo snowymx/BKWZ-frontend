@@ -63,10 +63,6 @@ function Staking() {
         return state.account.loading;
     });
 
-    const avatarData = useSelector<IReduxState, IAvatarData[]>(state => {
-        return state.account.balances.avatarData;
-    });
-
     let clickFunc: any = connect;
 
     return (

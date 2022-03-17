@@ -33,7 +33,6 @@ function NftBox({nftItem}: INftStakingProps) {
     };
 
     const onloadMetadata = (nftDetail: any) => {
-        console.log(nftDetail.image);
         rarityName = "rarity-" + nftDetail.rarity;
         nftImage = nftDetail.image;
         dispatch(fetchNftDetails({
@@ -152,8 +151,8 @@ function StakingNFT() {
         return state.account.loading;
     });
 
-    const avatarData = useSelector<IReduxState, IAvatarData[]>(state => {
-        return state.account.balances.avatarData;
+    const avatarBalance = useSelector<IReduxState, string>(state => {
+        return state.account.balances.avatarBalance;
     });
 
     const nfts = useSelector<IReduxState, INft[]>(state => {

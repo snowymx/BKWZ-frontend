@@ -16,7 +16,6 @@ const nftsSlice = createSlice({
     initialState,
     reducers: {
         fetchNft(state, action: PayloadAction<INft>) {
-            console.log(action.payload);
             state.push(action.payload);
         },
         clearNfts(state) {

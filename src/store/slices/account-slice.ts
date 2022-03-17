@@ -27,7 +27,6 @@ interface IAccountBalances {
     balances: {
         avax: string;
         avatarBalance: string;
-        avatarData: IAvatarData[];
     };
 }
 
@@ -55,7 +54,6 @@ export const getBalances = createAsyncThunk("account/getBalances", async ({ addr
         balances: {
             avax: ethers.utils.formatEther(avaxBalance),
             avatarBalance,
-            avatarData,
         },
     };
 });
@@ -91,7 +89,6 @@ export const loadAccountDetails = createAsyncThunk("account/loadAccountDetails",
                 id: avatarId, uri: avatarUri, staked: false, rarity: "", image: "",
             })
         );
-        avatarData.push({ id: avatarId, uri: avatarUri, staked: false});
     }
 
     return {
@@ -108,13 +105,12 @@ export interface IAccountSlice {
     balances: {
         avax: string;
         avatarBalance: string;
-        avatarData: IAvatarData[];
     };
 }
 
 const initialState: IAccountSlice = {
     loading: true,
-    balances: { avax: "", avatarBalance: "", avatarData: [] },
+    balances: { avax: "", avatarBalance: "", },
 };
 
 const accountSlice = createSlice({
