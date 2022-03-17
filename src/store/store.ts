@@ -4,6 +4,7 @@ import accountReducer from "./slices/account-slice";
 import appReducer from "./slices/app-slice";
 import pendingTransactionsReducer from "./slices/pending-txns-slice";
 import messagesReducer from "./slices/messages-slice";
+import nftsReducer from "./slices/nfts-slice";
 
 const store = configureStore({
     reducer: {
@@ -11,6 +12,7 @@ const store = configureStore({
         app: appReducer,
         pendingTransactions: pendingTransactionsReducer,
         messages: messagesReducer,
+        nfts: nftsReducer,
     },
     middleware: getDefaultMiddleware => getDefaultMiddleware({ serializableCheck: false }),
 });

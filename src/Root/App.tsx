@@ -65,7 +65,7 @@ function App() {
     }, [walletChecked]);
 
     useEffect(() => {
-        if (connected) {
+        if (connected && walletChecked) {
             loadDetails("app");
             loadDetails("account");
         }

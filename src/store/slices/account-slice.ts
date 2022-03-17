@@ -5,6 +5,7 @@ import { setAll } from "../../helpers";
 
 import { createSlice, createSelector, createAsyncThunk } from "@reduxjs/toolkit";
 import { JsonRpcProvider, StaticJsonRpcProvider } from "@ethersproject/providers";
+import { fetchNft, clearNfts } from "./nfts-slice";
 import { Networks } from "../../constants/blockchain";
 import React from "react";
 import { RootState } from "../store";
@@ -30,7 +31,7 @@ interface IAccountBalances {
     };
 }
 
-export const getBalances = createAsyncThunk("account/getBalances", async ({ address, networkID, provider }: IGetBalances): Promise<IAccountBalances> => {
+export const getBalances = createAsyncThunk("account/getBalances", async ({ address, networkID, provider }: IGetBalances, { dispatch }): Promise<IAccountBalances> => {
     const addresses = getAddresses(networkID);
     const avaxBalance = await provider.getBalance(address);
     const avatarContract = new ethers.Contract(addresses.AVATARNFT_ADDRESS, AvatarNftContract, provider);
@@ -38,9 +39,15 @@ export const getBalances = createAsyncThunk("account/getBalances", async ({ addr
 
     let avatarData: IAvatarData[] = [];
 
+    dispatch(clearNfts());
     for(var i = 0; i < avatarBalance; i ++) {
         const avatarId = await avatarContract.tokenOfOwnerByIndex(address, i);
         const avatarUri = await avatarContract.tokenURI(avatarId);
+        dispatch(
+            fetchNft({
+                id: avatarId, uri: avatarUri, staked: false, rarity: "", image: "",
+            })
+        );
         avatarData.push({ id: avatarId, uri: avatarUri, staked: false});
     }
 
@@ -67,7 +74,7 @@ interface IUserAccountDetails {
     };
 }
 
-export const loadAccountDetails = createAsyncThunk("account/loadAccountDetails", async ({ networkID, provider, address }: ILoadAccountDetails): Promise<IUserAccountDetails> => {
+export const loadAccountDetails = createAsyncThunk("account/loadAccountDetails", async ({ networkID, provider, address }: ILoadAccountDetails, { dispatch }): Promise<IUserAccountDetails> => {
     const addresses = getAddresses(networkID);
     const avaxBalance = await provider.getBalance(address);
     const avatarContract = new ethers.Contract(addresses.AVATARNFT_ADDRESS, AvatarNftContract, provider);
@@ -75,9 +82,15 @@ export const loadAccountDetails = createAsyncThunk("account/loadAccountDetails",
 
     let avatarData: IAvatarData[] = [];
 
+    dispatch(clearNfts());
     for(var i = 0; i < avatarBalance; i ++) {
         const avatarId = await avatarContract.tokenOfOwnerByIndex(address, i);
         const avatarUri = await avatarContract.tokenURI(avatarId);
+        dispatch(
+            fetchNft({
+                id: avatarId, uri: avatarUri, staked: false, rarity: "", image: "",
+            })
+        );
         avatarData.push({ id: avatarId, uri: avatarUri, staked: false});
     }
 
@@ -118,9 +131,7 @@ const accountSlice = createSlice({
                 state.loading = true;
             })
             .addCase(loadAccountDetails.fulfilled, (state, action) => {
-                console.log(action.payload);
                 setAll(state, action.payload);
-                console.log(state.balances);
                 state.loading = false;
             })
             .addCase(loadAccountDetails.rejected, (state, { error }) => {

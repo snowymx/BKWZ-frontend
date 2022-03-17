@@ -215,13 +215,22 @@
           display: flex;
           overflow: auto;
           .nft-box {
-            min-width: 300px;
+            min-width: 320px;
             padding: 0.5em;
             margin: 0.5em;
             background: linear-gradient(126.6deg, rgba(0, 0, 0, 0.7) 28.69%, rgba(0, 0, 0, 0.7) 100%);
             border: 1px solid rgba(255, 255, 255, 0.4);
             border-radius: 25px;
             float: left;
+            .nft-image {
+                padding: 20px;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 10px;
+                }
+            }
             .nft-button {
                 width: 200px;
                 background: linear-gradient(126.6deg, rgba(0, 0, 0, 0.7) 28.69%, rgba(0, 0, 0, 0.7) 100%);

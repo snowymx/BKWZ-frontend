@@ -7,6 +7,7 @@ import { useWeb3Context } from "../../hooks";
 import { IReduxState } from "../../store/slices/state.interface";
 import { IPendingTxn, isPendingTxn, txnButtonText } from "../../store/slices/pending-txns-slice";
 import { changeMint } from "../../store/slices/mint-thunk";
+import { clearNfts, fetchNftDetails } from "src/store/slices/nfts-slice";
 import "./Minting.scss";
 import { dice, plus, minus } from "../../constants/img";
 
@@ -29,6 +30,9 @@ function Minting() {
     const [value, setValue] = useState(1);
     const addValue = () => {
         setValue(value + 1);
+        dispatch(fetchNftDetails({
+            id: "1", uri: "111111", staked: false, rarity: "rare", image: "",
+        }));
     };
     const subValue = () => {
         if (value === 1) return;

@@ -3,7 +3,7 @@ import { getAddresses } from "../../constants";
 import { AvatarNftContract } from "../../abi";
 import { clearPendingTxn, fetchPendingTxns, getMintTypeText } from "./pending-txns-slice";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchAccountSuccess } from "./account-slice";
+import { loadAccountDetails } from "./account-slice";
 import { loadAppDetails } from "./app-slice";
 import { JsonRpcProvider, StaticJsonRpcProvider } from "@ethersproject/providers";
 import { Networks } from "../../constants/blockchain";
@@ -34,7 +34,7 @@ export const changeMint = createAsyncThunk("mint/changeMint", async ({ value, pr
 
     try {
         const gasPrice = await getGasPrice(provider);
-        mintTx = await avatarContract.mint({ gasPrice });
+        mintTx = await avatarContract.mintAvatar(value, { gasPrice });
         const pendingTxnType = "minting";
         dispatch(
             fetchPendingTxns({
@@ -53,8 +53,9 @@ export const changeMint = createAsyncThunk("mint/changeMint", async ({ value, pr
         }
     }
     dispatch(info({ text: messages.your_avatar_mint_soom }));
-    await sleep(10);
+    await sleep(15);
     await dispatch(loadAppDetails({ networkID, provider }));
+    await dispatch(loadAccountDetails({ networkID, provider, address }));
     dispatch(info({ text: messages.your_avatar_successfully_minted }));
     return;
 });
