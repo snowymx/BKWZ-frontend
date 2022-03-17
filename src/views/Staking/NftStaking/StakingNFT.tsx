@@ -1,18 +1,14 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Skeleton } from "@material-ui/lab";
-import { makeStyles } from "@material-ui/core/styles";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import axios from "axios";
 import { useWeb3Context } from "../../../hooks";
 import { IReduxState } from "../../../store/slices/state.interface";
-import { IAvatarData } from "src/store/slices/account-slice";
 import { INft } from "src/store/slices/nfts-slice";
 import { IPendingTxn, isPendingTxn, txnButtonText } from "../../../store/slices/pending-txns-slice";
 import { fetchNftDetails } from "src/store/slices/nfts-slice";
 import "../Staking.scss";
-import { nft1 } from "../../../constants/img";
-import classNames from "classnames";
 
 interface INftStakingProps {
     nftItem: INft;
