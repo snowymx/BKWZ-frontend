@@ -64,9 +64,7 @@ function NftBox({nftItem}: INftStakingProps) {
                 <img src={nftItem.image} alt="nft" />
             :
             <Skeleton className="style-skeleton" variant="rect" height={263} width={263} style={{borderRadius: "20px"}} />
-            }
-                
-                {/* <Skeleton className="style-skeleton" variant="rect" height={245} width={245} style={{borderRadius: "20px"}} /> */}
+            }                
             </div>
             <h5 className="gray">Rarity:</h5>
             {nftItem.rarity?
