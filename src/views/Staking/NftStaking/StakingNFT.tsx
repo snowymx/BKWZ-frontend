@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Skeleton } from "@material-ui/lab";
 import { makeStyles } from "@material-ui/core/styles";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import axios from "axios";
 import { useWeb3Context } from "../../../hooks";
 import { IReduxState } from "../../../store/slices/state.interface";
@@ -170,7 +171,7 @@ function StakingNFT() {
                     ))
                 :
                     accountLoading?
-                        <SkeletonGroup />
+                        <CircularProgress size={130} color="inherit" style={{margin: "10em auto"}} />
                     :
                         <div style={{margin: "10em auto"}}>
                             <h4>You have no Staked Atatar</h4>
