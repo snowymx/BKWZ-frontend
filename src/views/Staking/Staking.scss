@@ -272,13 +272,18 @@
                 font-weight: bolder;
                 content: "Rare";
             }
-            h5.rarity-unique:after {
-                color: #01F19A;
+            h5.rarity-epic:after {
+                color: #195f45;
                 font-weight: bolder;
-                content: "Unique";
+                content: "epic";
+            }
+            h5.rarity-unipue:after {
+                color: #a55e2f;
+                font-weight: bolder;
+                content: "unipue";
             }
             h5.rarity-legendary:after {
-                color: #EC01F1;
+                color: #912ed3;
                 font-weight: bolder;
                 content: "Legendary";
             }
