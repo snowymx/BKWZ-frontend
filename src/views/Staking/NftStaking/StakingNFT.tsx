@@ -35,6 +35,7 @@ function NftBox({nftItem}: INftStakingProps) {
     const onloadMetadata = (nftDetail: any) => {
         rarityName = "rarity-" + nftDetail.rarity;
         nftImage = nftDetail.image;
+        // console.log(nftDetail);
         dispatch(fetchNftDetails({
             id: nftItem.id,
             uri: nftItem.uri,
@@ -46,17 +47,23 @@ function NftBox({nftItem}: INftStakingProps) {
     
     useEffect(() => {
         loadMetadata(nftItem.uri + ".json").then((data) => onloadMetadata(data.data));        
-    }, [])
+    }, []);
+
+    // useEffect(() => {
+    //     console.log("image load", imageLoaded);
+    //     console.log("image error", imageError);
+    // }, [imageLoaded, imageError]);
 
     return(
         <div className="nft-box">
             <h5 className="gray">Estimated daily yield:</h5>
             <h5 className="yellow-bold">1.00 BKWZ</h5>
             <div className="nft-image">
+            <img src={nftItem.image} style={{display: "none"}} alt="nft" onLoad={() => setImageLoaded(true)} onError={() => setImageError(true)} />
             {nftItem.image && imageLoaded?
-                <img src={nftItem.image} alt="nft" onLoad={() => setImageLoaded(true)} onError={() => setImageError(true)} />
+                <img src={nftItem.image} alt="nft" />
             :
-            <Skeleton className="style-skeleton" variant="rect" height={245} width={245} style={{borderRadius: "20px"}} />
+            <Skeleton className="style-skeleton" variant="rect" height={263} width={263} style={{borderRadius: "20px"}} />
             }
                 
                 {/* <Skeleton className="style-skeleton" variant="rect" height={245} width={245} style={{borderRadius: "20px"}} /> */}

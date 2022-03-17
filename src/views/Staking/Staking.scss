@@ -228,6 +228,7 @@
           display: flex;
           overflow: auto;
           .nft-box {
+            width: 320px;
             min-width: 320px;
             padding: 0.5em;
             margin: 0.5em;
@@ -277,15 +278,15 @@
                 font-weight: bolder;
                 content: "epic";
             }
-            h5.rarity-unipue:after {
+            h5.rarity-unique:after {
                 color: #a55e2f;
                 font-weight: bolder;
-                content: "unipue";
+                content: "unique";
             }
             h5.rarity-legendary:after {
                 color: #912ed3;
                 font-weight: bolder;
-                content: "Legendary";
+                content: "legendary";
             }
             h5.yellow-bold {
                 color: #FF9600;
