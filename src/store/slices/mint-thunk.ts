@@ -53,7 +53,7 @@ export const changeMint = createAsyncThunk("mint/changeMint", async ({ value, pr
         }
     }
     dispatch(info({ text: messages.your_avatar_mint_soom }));
-    await sleep(15);
+    await sleep(20);
     await dispatch(loadAppDetails({ networkID, provider }));
     await dispatch(loadAccountDetails({ networkID, provider, address }));
     dispatch(info({ text: messages.your_avatar_successfully_minted }));

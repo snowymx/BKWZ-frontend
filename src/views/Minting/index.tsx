@@ -30,9 +30,6 @@ function Minting() {
     const [value, setValue] = useState(1);
     const addValue = () => {
         setValue(value + 1);
-        dispatch(fetchNftDetails({
-            id: "1", uri: "111111", staked: false, rarity: "rare", image: "",
-        }));
     };
     const subValue = () => {
         if (value === 1) return;
