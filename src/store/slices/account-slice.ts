@@ -1,6 +1,6 @@
 import { ethers } from "ethers";
 import { getAddresses } from "../../constants";
-import { TrimTokenContract, MimTokenContract, PresaleContract } from "../../abi";
+import { AvatarNftContract } from "../../abi";
 import { setAll } from "../../helpers";
 
 import { createSlice, createSelector, createAsyncThunk } from "@reduxjs/toolkit";
@@ -16,29 +16,39 @@ interface IGetBalances {
     provider: StaticJsonRpcProvider | JsonRpcProvider;
 }
 
+export interface IAvatarData {
+    id: string;
+    uri: string;
+    staked: boolean;
+}
+
 interface IAccountBalances {
     balances: {
-        mim: string;
-        trim: string;
-        amim: string;
+        avax: string;
+        avatarBalance: string;
+        avatarData: IAvatarData[];
     };
 }
 
 export const getBalances = createAsyncThunk("account/getBalances", async ({ address, networkID, provider }: IGetBalances): Promise<IAccountBalances> => {
     const addresses = getAddresses(networkID);
+    const avaxBalance = await provider.getBalance(address);
+    const avatarContract = new ethers.Contract(addresses.AVATARNFT_ADDRESS, AvatarNftContract, provider);
+    const avatarBalance = await avatarContract.balanceOf(address);
 
-    const mimContract = new ethers.Contract(addresses.MIM_ADDRESS, MimTokenContract, provider);
-    const mimBalance = await mimContract.balanceOf(address);
-    const trimContract = new ethers.Contract(addresses.TRIM_ADDRESS, TrimTokenContract, provider);
-    const trimBalance = await trimContract.balanceOf(address);
-    const presaleContract = new ethers.Contract(addresses.PRESALE_ADDRESS, PresaleContract, provider);
-    const investorDetail = await presaleContract.investors(address);
+    let avatarData: IAvatarData[] = [];
+
+    for(var i = 0; i < avatarBalance; i ++) {
+        const avatarId = await avatarContract.tokenOfOwnerByIndex(address, i);
+        const avatarUri = await avatarContract.tokenURI(avatarId);
+        avatarData.push({ id: avatarId, uri: avatarUri, staked: false});
+    }
 
     return {
         balances: {
-            mim: ethers.utils.formatUnits(mimBalance),
-            trim: ethers.utils.formatEther(trimBalance),
-            amim: ethers.utils.formatEther(investorDetail.depositedAmount),
+            avax: ethers.utils.formatEther(avaxBalance),
+            avatarBalance,
+            avatarData,
         },
     };
 });
@@ -51,89 +61,47 @@ interface ILoadAccountDetails {
 
 interface IUserAccountDetails {
     balances: {
-        mim: string;
-        trim: string;
-        amim: string;
-        claimable: string;
-    };
-    presale: {
-        mim: number;
-        trim: number;
+        avax: string;
+        avatarBalance: number;
+        avatarData: IAvatarData[];
     };
 }
 
 export const loadAccountDetails = createAsyncThunk("account/loadAccountDetails", async ({ networkID, provider, address }: ILoadAccountDetails): Promise<IUserAccountDetails> => {
-    let trimBalance = 0;
-    let mimBalance = 0;
-    let purchaseAllowance = 0;
-    let claimAllowance = 0;
-    let claimable = 0;
-    let investorDetail = { tierType: 0, depositedAmount: 0, claimedAmount: 0, pTotalTokenAmount: 0 };
-
     const addresses = getAddresses(networkID);
+    const avaxBalance = await provider.getBalance(address);
+    const avatarContract = new ethers.Contract(addresses.AVATARNFT_ADDRESS, AvatarNftContract, provider);
+    const avatarBalance = await avatarContract.balanceOf(address);
 
-    if (addresses.MIM_ADDRESS) {
-        const mimContract = new ethers.Contract(addresses.MIM_ADDRESS, MimTokenContract, provider);
-        mimBalance = await mimContract.balanceOf(address);
-        purchaseAllowance = await mimContract.allowance(address, addresses.PRESALE_ADDRESS);
-    }
+    let avatarData: IAvatarData[] = [];
 
-    if (addresses.TRIM_ADDRESS) {
-        const atnContract = new ethers.Contract(addresses.TRIM_ADDRESS, TrimTokenContract, provider);
-        trimBalance = await atnContract.balanceOf(address);
-        claimAllowance = await atnContract.allowance(address, addresses.PRESALE_ADDRESS);
-    }
-
-    if (addresses.PRESALE_ADDRESS) {
-        const presaleContract = new ethers.Contract(addresses.PRESALE_ADDRESS, PresaleContract, provider);
-        investorDetail = await presaleContract.investors(address);
-        claimable = await presaleContract.getClaimableAmount(address);
+    for(var i = 0; i < avatarBalance; i ++) {
+        const avatarId = await avatarContract.tokenOfOwnerByIndex(address, i);
+        const avatarUri = await avatarContract.tokenURI(avatarId);
+        avatarData.push({ id: avatarId, uri: avatarUri, staked: false});
     }
 
     return {
         balances: {
-            mim: ethers.utils.formatUnits(mimBalance),
-            trim: ethers.utils.formatUnits(trimBalance, "gwei"),
-            amim: ethers.utils.formatEther(investorDetail.depositedAmount),
-            claimable: ethers.utils.formatUnits(claimable),
-        },
-        presale: {
-            mim: Number(purchaseAllowance),
-            trim: Number(claimAllowance),
+            avax: ethers.utils.formatEther(avaxBalance),
+            avatarBalance: Number(avatarBalance),
+            avatarData,
         },
     };
 });
 
-export interface IUserTokenDetails {
-    allowance: number;
-    balance: number;
-    isAvax?: boolean;
-}
-
 export interface IAccountSlice {
-    balances: {
-        mim: string;
-        trim: string;
-        amim: string;
-        claimable: string;
-    };
     loading: boolean;
-    tokens: { [key: string]: IUserTokenDetails };
-    presale: {
-        mim: number;
-        trim: number;
-    };
-    mint: {
-        mim: number;
+    balances: {
+        avax: string;
+        avatarBalance: string;
+        avatarData: IAvatarData[];
     };
 }
 
 const initialState: IAccountSlice = {
     loading: true,
-    balances: { mim: "", trim: "", amim: "", claimable: "" },
-    tokens: {},
-    presale: { mim: 0, trim: 0 },
-    mint: { mim: 0 },
+    balances: { avax: "", avatarBalance: "", avatarData: [] },
 };
 
 const accountSlice = createSlice({
@@ -150,7 +118,9 @@ const accountSlice = createSlice({
                 state.loading = true;
             })
             .addCase(loadAccountDetails.fulfilled, (state, action) => {
+                console.log(action.payload);
                 setAll(state, action.payload);
+                console.log(state.balances);
                 state.loading = false;
             })
             .addCase(loadAccountDetails.rejected, (state, { error }) => {
@@ -167,7 +137,7 @@ const accountSlice = createSlice({
             .addCase(getBalances.rejected, (state, { error }) => {
                 state.loading = false;
                 console.log(error);
-            });
+            })
     },
 });
 

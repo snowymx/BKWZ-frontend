@@ -6,4 +6,3 @@ export { default as Beta } from "./Beta";
 export { default as Token } from "./Token";
 export { default as Minting } from "./Minting";
 export { default as Staking } from "./Staking";
-export { default as Publicsale } from "./Publicsale";
