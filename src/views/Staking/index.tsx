@@ -67,6 +67,8 @@ function Staking() {
         return state.account.balances.avatarData;
     });
 
+    let clickFunc: any = connect;
+
     return (
         <section className="container-fluid staking" id="staking">
             <div className="content">
@@ -76,10 +78,15 @@ function Staking() {
                         <div className={nftStaking ? "nft active" : "nft"}>NFT Staking</div>
                         <div className={nftStaking ? "coin" : "coin active"}>Coin Staking</div>
                     </div>
-                    {nftStaking ? 
+                    {nftStaking && address ? 
                       <NftStaking />
                     : 
-                      <CoinStaking />
+                      address? 
+                        <CoinStaking />
+                      :
+                        <div className="tran-box">
+                            <div className="connect-button" onClick={clickFunc}>CONNECT WALLET</div>
+                        </div>
                     }
                 </div>
             </div>

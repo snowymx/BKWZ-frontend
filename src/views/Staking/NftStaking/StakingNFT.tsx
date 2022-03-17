@@ -27,6 +27,7 @@ function NftBox({nftItem}: INftStakingProps) {
     let nftImage;
 
     const loadMetadata = async (uri: string): Promise<any> => {
+        console.log(uri);
         const data = await axios.get(uri);
         return data;
     };

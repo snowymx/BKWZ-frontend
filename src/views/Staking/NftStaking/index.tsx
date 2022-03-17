@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { Grid, Zoom } from "@material-ui/core";
+import { useWeb3Context } from "../../../hooks";
 import "../Staking.scss";
 import classNames from "classnames";
 import StakingNFT from "./StakingNFT";
 import UnStakingNFT from "./UnStakingNFT";
 
 function NftStaking() {
+    const { provider, address, connect, chainID, checkWrongNetwork } = useWeb3Context();
+
     const [staking, setStaking] = useState(true);
     const onStaking = (_set:boolean) => {
         setStaking(_set);
