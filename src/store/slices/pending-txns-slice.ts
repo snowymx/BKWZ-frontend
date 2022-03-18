@@ -24,8 +24,8 @@ const pendingTxnsSlice = createSlice({
     },
 });
 
-export const getPresaleTypeText = (action: string) => {
-    return action.toLowerCase() === "purchase" ? "Purchasing TRIM" : "claiming TRIM";
+export const getMintTypeText = () => {
+    return "minting";
 };
 
 export const isPendingTxn = (pendingTransactions: IPendingTxn[], type: string) => {

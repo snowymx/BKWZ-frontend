@@ -8,7 +8,7 @@ function Root() {
         const { pathname } = useLocation();
         useEffect(() => {
             var position:any = document.querySelector("#root-child");
-            position.scrollTop = 0;
+            if(position) position.scrollTop = 0;
         }, [pathname]);
         return props.children;
     }

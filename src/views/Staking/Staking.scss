@@ -171,6 +171,19 @@
       border: 1px solid rgba(255, 255, 255, 0.4);
       border-radius: 25px;
       padding: 1em;
+      .connect-button {
+        width: 280px;
+        background: linear-gradient(180deg, #ff9600 0%, #ff9600 100%);
+        color: black;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        border-radius: 25px;
+        margin: 10em auto;
+        font-size: 1.2rem;
+        font-weight: 900;
+        cursor: pointer;
+        line-height: 32px;
+        height: 35px;
+      }
       h4.your-avatars {
         text-align: left;
         margin: 0.5em 3em;
@@ -215,13 +228,23 @@
           display: flex;
           overflow: auto;
           .nft-box {
-            min-width: 300px;
+            width: 320px;
+            min-width: 320px;
             padding: 0.5em;
             margin: 0.5em;
             background: linear-gradient(126.6deg, rgba(0, 0, 0, 0.7) 28.69%, rgba(0, 0, 0, 0.7) 100%);
             border: 1px solid rgba(255, 255, 255, 0.4);
             border-radius: 25px;
             float: left;
+            .nft-image {
+                padding: 20px;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 10px;
+                }
+            }
             .nft-button {
                 width: 200px;
                 background: linear-gradient(126.6deg, rgba(0, 0, 0, 0.7) 28.69%, rgba(0, 0, 0, 0.7) 100%);
@@ -250,15 +273,20 @@
                 font-weight: bolder;
                 content: "Rare";
             }
-            h5.rarity-unique:after {
-                color: #01F19A;
+            h5.rarity-epic:after {
+                color: #195f45;
                 font-weight: bolder;
-                content: "Unique";
+                content: "epic";
+            }
+            h5.rarity-unique:after {
+                color: #a55e2f;
+                font-weight: bolder;
+                content: "unique";
             }
             h5.rarity-legendary:after {
-                color: #EC01F1;
+                color: #912ed3;
                 font-weight: bolder;
-                content: "Legendary";
+                content: "legendary";
             }
             h5.yellow-bold {
                 color: #FF9600;

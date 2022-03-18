@@ -7,7 +7,7 @@ import { loadAccountDetails } from "../store/slices/account-slice";
 import { IReduxState } from "../store/slices/state.interface";
 import Loading from "../components/Loader";
 import ViewBase from "../components/ViewBase";
-import { NotFound, Dashboard, Gameplay, Dao, Beta, Token, Minting, Staking, Publicsale } from "../views";
+import { NotFound, Dashboard, Gameplay, Dao, Beta, Token, Minting, Staking } from "../views";
 import "./style.scss";
 
 function App() {
@@ -65,7 +65,7 @@ function App() {
     }, [walletChecked]);
 
     useEffect(() => {
-        if (connected) {
+        if (connected && walletChecked) {
             loadDetails("app");
             loadDetails("account");
         }
@@ -99,9 +99,6 @@ function App() {
                 </Route>            
                 <Route exact path="/staking">
                     <Staking />
-                </Route>
-                <Route exact path="/test">
-                    <Publicsale />
                 </Route>
                 <Route component={NotFound} />
             </Switch>
