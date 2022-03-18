@@ -90,51 +90,7 @@ function SkeletonGroup() {
                 <Skeleton className="style-skeleton" height={50} width={"80%"} />
                 <br />
                 <Skeleton className="style-skeleton" height={60} width={"70%"} />
-            </div>
-            <div className="nft-box" style={{borderWidth: "0"}}>
-                <Skeleton className="style-skeleton" height={50} width={"80%"} />
-                <br />
-                <Skeleton className="style-skeleton" variant="rect" height={200} width={200} style={{borderRadius: "20px"}} />
-                <br />
-                <Skeleton className="style-skeleton" height={40} width={"50%"} />
-                <br />
-                <Skeleton className="style-skeleton" height={50} width={"80%"} />
-                <br />
-                <Skeleton className="style-skeleton" height={60} width={"70%"} />
             </div>  
-            <div className="nft-box" style={{borderWidth: "0"}}>
-                <Skeleton className="style-skeleton" height={50} width={"80%"} />
-                <br />
-                <Skeleton className="style-skeleton" variant="rect" height={200} width={200} style={{borderRadius: "20px"}} />
-                <br />
-                <Skeleton className="style-skeleton" height={40} width={"50%"} />
-                <br />
-                <Skeleton className="style-skeleton" height={50} width={"80%"} />
-                <br />
-                <Skeleton className="style-skeleton" height={60} width={"70%"} />
-            </div>  
-            <div className="nft-box" style={{borderWidth: "0"}}>
-                <Skeleton className="style-skeleton" height={50} width={"80%"} />
-                <br />
-                <Skeleton className="style-skeleton" variant="rect" height={200} width={200} style={{borderRadius: "20px"}} />
-                <br />
-                <Skeleton className="style-skeleton" height={40} width={"50%"} />
-                <br />
-                <Skeleton className="style-skeleton" height={50} width={"80%"} />
-                <br />
-                <Skeleton className="style-skeleton" height={60} width={"70%"} />
-            </div>  
-            <div className="nft-box" style={{borderWidth: "0"}}>
-                <Skeleton className="style-skeleton" height={50} width={"80%"} />
-                <br />
-                <Skeleton className="style-skeleton" variant="rect" height={200} width={200} style={{borderRadius: "20px"}} />
-                <br />
-                <Skeleton className="style-skeleton" height={40} width={"50%"} />
-                <br />
-                <Skeleton className="style-skeleton" height={50} width={"80%"} />
-                <br />
-                <Skeleton className="style-skeleton" height={60} width={"70%"} />
-            </div>     
         </>    
     )
 }

@@ -31,7 +31,7 @@ function NftStaking() {
             <div className="tran-box">
                 <div className="stake-state">
                     <div className={classNames("staked", { active: staking })} onClick={() => onStaking(true) }>
-                        STAKED - {accountLoading? <CircularProgress size={15} color="inherit" /> :avatarBalance}
+                        STAKED - {accountLoading? <CircularProgress size={15} color="inherit" /> : avatarBalance}
                     </div>
                     <div className={classNames("unstaked", { active: !staking })} onClick={() => onStaking(false)}>
                         UNSTAKED - 0
