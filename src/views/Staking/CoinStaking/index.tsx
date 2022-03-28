@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Grid, Zoom } from "@material-ui/core";
+import AvaxDepositModal from "./modals/AvaxDepositModal";
 import "../Staking.scss";
 import { avax, signlogo } from "../../../constants/img";
 
@@ -22,7 +23,7 @@ function CoinStaking() {
                     </Grid>
                     <h5>BKWZ Earned</h5>
                     <h5 className="number">0.000000000</h5>
-                    <div className="coin-button">Claim earnings</div>
+                    <div className="earning-button">Claim earnings</div>
                     <div className="coin-button">Deposit</div>
                     <div className="coin-button">Unstake</div>
                     <h5 className="short">APY % :</h5>
@@ -52,7 +53,7 @@ function CoinStaking() {
                     </Grid>
                     <h5>BKWZ Earned</h5>
                     <h5 className="number">0.000000000</h5>
-                    <div className="coin-button">Claim earnings</div>
+                    <div className="earning-button">Claim earnings</div>
                     <div className="coin-button">Deposit</div>
                     <div className="coin-button">Unstake</div>
                     <h5 className="short">APY % :</h5>
@@ -79,7 +80,7 @@ function CoinStaking() {
                     </Grid>
                     <h5>BKWZ Earned</h5>
                     <h5 className="number">0.000000000</h5>
-                    <div className="coin-button">Claim earnings</div>
+                    <div className="earning-button">Claim earnings</div>
                     <div className="coin-button">Deposit</div>
                     <div className="coin-button">Unstake</div>
                     <h5 className="short">APY % :</h5>
@@ -97,6 +98,7 @@ function CoinStaking() {
                 </div>
             </div>
         </Zoom>
+
     );
 }
 

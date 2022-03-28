@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Switch from "@material-ui/core/Switch";
 import { styled } from "@material-ui/core/styles";
@@ -7,11 +7,11 @@ import { Grid, Zoom } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { useWeb3Context } from "../../hooks";
 import { IReduxState } from "../../store/slices/state.interface";
-import { IAvatarData } from "src/store/slices/account-slice";
 import { IPendingTxn, isPendingTxn, txnButtonText } from "../../store/slices/pending-txns-slice";
 import NftStaking from "./NftStaking";
 import CoinStaking from "./CoinStaking";
 import "./Staking.scss";
+import { check } from "prettier";
 
 const Android12Switch = styled(Switch)(({ theme }) => ({
     padding: 8,
@@ -63,25 +63,23 @@ function Staking() {
         return state.account.loading;
     });
 
-    let clickFunc: any = connect;
-
     return (
         <section className="container-fluid staking" id="staking">
             <div className="content">
                 <div className="container">
                     {/* <Android12Switch defaultChecked /> */}
                     <div className="row switch-button" onClick={onSwitch}>
-                        <div className={nftStaking ? "nft active" : "nft"}>NFT Staking</div>
-                        <div className={nftStaking ? "coin" : "coin active"}>Coin Staking</div>
+                        <span className={nftStaking ? "nft active" : "nft"}>NFT Staking</span>
+                        <span className={nftStaking ? "coin" : "coin active"}>Coin Staking</span>
                     </div>
-                    {nftStaking && address ? 
+                    {nftStaking && address ?
                       <NftStaking />
                     : 
-                      address? 
+                      address?
                         <CoinStaking />
                       :
                         <div className="tran-box">
-                            <div className="connect-button" onClick={clickFunc}>CONNECT WALLET</div>
+                            <div className="connect-button" onClick={connect}>CONNECT WALLET</div>
                         </div>
                     }
                 </div>

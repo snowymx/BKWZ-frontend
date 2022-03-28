@@ -6,106 +6,137 @@
     // justify-content: center;
     // overflow: hidden;
     .bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background-size: cover;
-      background-position: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
     }
     .container {
         max-width: none;
     }
+    .content-progress {
+        width: fit-content;
+        margin: auto;
+        color: white;
+    }
     .tran-box {
-      position: relative;
-      z-index: 9;
-      color: white;
-      text-align: center;
-      margin: 2em 0;
-      background: linear-gradient(126.6deg, rgba(0, 0, 0, 0.7) 28.69%, rgba(0, 0, 0, 0.7) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      border-radius: 25px;
-      padding: 1em;
-      .m-auto {
-          margin: 0 !important;
-          padding: 15px;
-          .mint-box {
-            margin: 1em 0;
-            padding: 1em;
-            background: linear-gradient(126.6deg, rgba(0, 0, 0, 0.7) 28.69%, rgba(0, 0, 0, 0.7) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            border-radius: 25px;
-            .mint-value-set {
-                border: 3px solid rgba(255, 255, 255, 0.4);
-                border-left: 0px;
-                border-right: 0px;
-                padding: 20px 0;
-                margin: 40px 0;
-                h4 {
-                    margin-block-start: 0em;
-                    margin-block-end: 0em;
-                }
-            }
-            .bar {
-                height: 1px;
-                width: 100%;
-                margin: 2em 0;
-                border: 1px solid rgba(255, 255, 255, 0.4);
-            }
-            img {
-                cursor: pointer;
-            }
-            img:hover {
-                opacity: 0.8;
-            }
-            .col-number {
-                float: left;
-                width: 20%;
-            }
-            .connect-button {
-                background: linear-gradient(180deg, #ff9600 0%, #ff9600 100%);
+        position: relative;
+        z-index: 9;
+        color: white;
+        text-align: center;
+        margin: 2em 0;
+        background: linear-gradient(126.6deg, rgba(0, 0, 0, 0.7) 28.69%, rgba(0, 0, 0, 0.7) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.19);
+        border-radius: 25px;
+        padding: 1em;
+        .m-auto {
+            margin: 0 !important;
+            padding: 15px;
+            .mint-box {
+                margin: 1em 0;
+                padding: 1em;
+                background: linear-gradient(126.6deg, rgba(0, 0, 0, 0.7) 28.69%, rgba(0, 0, 0, 0.7) 100%);
                 border: 1px solid rgba(255, 255, 255, 0.19);
                 border-radius: 25px;
-                color: black;
-                font-size: 1.25rem;
-                font-weight: 600;
-                line-height: 2.5rem;
-                cursor: pointer;
-                width: 12em;
-                margin: auto;
-                padding: 0 5px;
+                .mint-value-set {
+                    border: 1px solid rgba(255, 255, 255, 0.19);
+                    border-left: 0px;
+                    border-right: 0px;
+                    padding: 40px 0;
+                    margin: 40px 0;
+                    h4 {
+                        margin-block-start: 0em;
+                        margin-block-end: 0em;
+                    }
+                }
+                .bar {
+                    height: 1px;
+                    width: 100%;
+                    margin: 2em 0;
+                    border: 1px solid rgba(255, 255, 255, 0.19);
+                }
+                img {
+                    cursor: pointer;
+                }
+                .diceImage {
+                    margin-top: 20px;
+                }
+                img:hover {
+                    opacity: 0.8;
+                }
+                .col-number {
+                    float: left;
+                    width: 20%;
+                }
+                .connect-button {
+                    background: linear-gradient(180deg, #ff9600 0%, #ff9600 100%);
+                    border: 1px solid rgba(255, 255, 255, 0.19);
+                    border-radius: 25px;
+                    color: black;
+                    font-size: 1.25rem;
+                    font-weight: 600;
+                    line-height: 2.5rem;
+                    cursor: pointer;
+                    width: 12em;
+                    margin: auto;
+                    padding: 0 5px;
+                }
+                .connect-button:hover {
+                    opacity: 0.7;
+                }
+                span.rarity-common:after {
+                    font-weight: 900;
+                    content: "Common";
+                }
+                span.rarity-rare:after {
+                    color: #ff0707;
+                    font-weight: 900;
+                    content: "Rare";
+                }
+                span.rarity-epic:after {
+                    color: #00ffa2;
+                    font-weight: 900;
+                    content: "Epic";
+                }
+                span.rarity-unique:after {
+                    color: #ff9600;
+                    font-weight: 900;
+                    content: "Unique";
+                }
+                span.rarity-legendary:after {
+                    color: #f901ff;
+                    font-weight: 900;
+                    content: "Legendary";
+                }
             }
-            .connect-button:hover {
-                opacity: 0.7;
+        }
+        .dice-image {
+            img {
+                min-width: 40em;
             }
-          }
-      }
-      .dice-image {
-          img {
-            min-width: 40em;
-          }
-      }
-      p {
-        font-size: 1.3em;
-      }
-      h5 {
-          font-weight: 400;
-      }
+        }
+        p {
+            font-size: 1.3em;
+        }
+        h5 {
+            font-weight: bolder;
+        }
     }
-  
+
     .grad-txt {
-      // background: -webkit-linear-gradient(0deg, #BA17C6 30%, #0394C1 70%);
-      background: -webkit-linear-gradient(0deg, #D100E2 -11.59%, #0081AA 70.36%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 0.5em;
+        // background: -webkit-linear-gradient(0deg, #BA17C6 30%, #0394C1 70%);
+        background: -webkit-linear-gradient(0deg, #d100e2 -11.59%, #0081aa 70.36%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 0.5em;
     }
-    
-  }
-  
-//   @media (max-width: 1000px) {    
+}
+
+//   @media (max-width: 1000px) {
 //     .minting {
 //       padding: 0em 2em;
 //       .tran-box {
@@ -119,13 +150,140 @@
 //       }
 //     }
 //   }
-  
-  @media (max-width: 576px) {
-    .minting {
-      padding: 1em;
-      .tran-box {
-        padding: 1em 0;
-      }
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4.5em;
+  margin-bottom: 0;
+}
+.modal-box {
+    position: relative;
+    color: white;
+    text-align: center;
+    margin: 2em 0;
+    background: linear-gradient(126.6deg, rgba(0, 0, 0, 0.7) 28.69%, rgba(0, 0, 0, 0.7) 100%);
+    border: 2px solid rgba(255, 255, 255, 0.19);
+    border-radius: 25px;
+    padding: 1em;
+    max-width: -webkit-fill-available;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    h4 {
+      font-size: 1.4em;
     }
-  }
-  
+    hr {
+        width: 600px;
+    }
+    .continue-button {
+        width: 200px;
+        background: linear-gradient(126.6deg, rgba(0, 0, 0, 0.7) 28.69%, rgba(0, 0, 0, 0.7) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.19);
+        border-radius: 25px;
+        margin: 0.9em auto;
+        font-size: 1.2rem;
+        font-weight: 900;
+        cursor: pointer;
+        line-height: 32px;
+        height: 35px;
+    }
+    .continue-button:hover {
+        background: linear-gradient(180deg, #ff9600 0%, #ff9600 100%);
+        color: black;
+    }
+    .avatars {
+        display: flex;
+        // justify-content: center;
+        overflow: auto;
+        // padding: 0 5em;
+        .nft-box {
+            width: 250px;
+            min-width: 250px;
+            padding: 0.5em;
+            margin: 0.5em 1.5em;
+            background: linear-gradient(126.6deg, rgba(0, 0, 0, 0.7) 28.69%, rgba(0, 0, 0, 0.7) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.19);
+            border-radius: 25px;
+            float: left;
+            .nft-image {
+                padding: 5px;
+                img {
+                    width: 70%;
+                    margin: auto;
+                    object-fit: cover;
+                    border-radius: 10px;
+                    box-shadow: 0px 0px 10px 2px #2f2352;
+                }
+                .error-image {
+                    width: 263px;
+                    height: 263px;
+                    border-radius: 20px;
+                    background-color: #261137 !important;
+                    color: #ffffff;
+                    /* vertical-align: middle; */
+                    font-size: 30px;
+                    font-weight: bolder;
+                    line-height: 263px;
+                }
+            }
+            h5 {
+              margin-block-start: 0.5em;
+              margin-block-end: 0.5em;
+              font-size: 1.2em;
+            }
+            h5.gray {
+                opacity: 0.8;
+            }
+            h5.rarity-common:after {
+                font-weight: bolder;
+                content: "Common";
+            }
+            h5.rarity-rare:after {
+                color: #ff0707;
+                font-weight: bolder;
+                content: "Rare";
+            }
+            h5.rarity-epic:after {
+                color: #00ffa2;
+                font-weight: bolder;
+                content: "Epic";
+            }
+            h5.rarity-unique:after {
+                color: #ff9600;
+                font-weight: bolder;
+                content: "Unique";
+            }
+            h5.rarity-legendary:after {
+                color: #f901ff;
+                font-weight: bolder;
+                content: "Legendary";
+            }
+            h5.yellow-bold {
+                color: #ff9600;
+                font-weight: bolder;
+            }
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .modal {
+        .modal-box hr {
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .minting {
+        padding: 1em;
+        .tran-box {
+            padding: 1em 0;
+        }
+    }
+    .modal {
+        margin-left: 2em;
+        margin-right: 2em;
+    }
+}

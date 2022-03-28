@@ -10,6 +10,6 @@ export const messages = {
     before_buyToken: "Amount is not correct. Please contact with admin first.",
     before_purchase: "Before purchasing, enter a value.",
     before_claim: "Before claiming, enter a value.",
-    your_avatar_mint_soom: "Your avatar NFTs are minted soon",
+    your_avatar_mint_soom: "Your avatar NFTs will be minted soon",
     your_avatar_successfully_minted: "Your avatar NFTs are successfully minted",
 };

@@ -19,7 +19,7 @@ export const loadAppDetails = createAsyncThunk(
     "app/loadAppDetails",
     //@ts-ignore
     async ({ networkID, provider }: ILoadAppDetails) => {
-        const mimPrice = getTokenPrice("MIM");
+        // const mimPrice = getTokenPrice("MIM");
         const addresses = getAddresses(networkID);
 
         // const currentBlock = await provider.getBlockNumber();
@@ -27,10 +27,13 @@ export const loadAppDetails = createAsyncThunk(
         const avatarNftContract = new ethers.Contract(addresses.AVATARNFT_ADDRESS, AvatarNftContract, provider);
 
         const totalSupply = await avatarNftContract.totalSupply();
-
+        const baseUri = await avatarNftContract.baseUri();
+        const avatarPrice = await avatarNftContract.price();
 
         return {
             totalSupply,
+            baseUri,
+            avatarPrice: Number(ethers.utils.formatEther(avatarPrice)),
         };
     },
 );
@@ -43,6 +46,8 @@ export interface IAppSlice {
     loading: boolean;
     networkID: number;
     totalSupply: number;
+    baseUri: string;
+    avatarPrice: number;
 }
 
 const appSlice = createSlice({

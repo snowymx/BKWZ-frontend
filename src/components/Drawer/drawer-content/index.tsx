@@ -71,7 +71,7 @@ function NavContent() {
                         className={classnames("button-dapp-menu", { active: isActive })}
                     >
                         <div className="dapp-menu-item">
-                            <img alt="" src={DashboardIcon} />
+                            {/* <img alt="" src={DashboardIcon} /> */}
                             <p>Dashboard</p>
                         </div>
                     </Link>
@@ -85,21 +85,22 @@ function NavContent() {
                         className={classnames("button-dapp-menu", { active: isActive })}
                     >
                         <div className="dapp-menu-item">
-                            <img alt="" src={playIcon} />
+                            {/* <img alt="" src={playIcon} /> */}
                             <p>Gameplay</p>
                         </div>
                     </Link>
 
                     <Link
-                        component={NavLink}
-                        to="/dao"
-                        isActive={(match: any, location: any) => {
-                            return checkPage(location, "dao");
-                        }}
+                        href="https://snapshot.org/#/blockways.eth" target="_blank"
+                        // component={NavLink}
+                        // to="/dao"
+                        // isActive={(match: any, location: any) => {
+                        //     return checkPage(location, "dao");
+                        // }}
                         className={classnames("button-dapp-menu", { active: isActive })}
                     >
                         <div className="dapp-menu-item">
-                            <img alt="" src={GlobeIcon} />
+                            {/* <img alt="" src={GlobeIcon} /> */}
                             <p>DAO</p>
                         </div>
                     </Link>
@@ -113,12 +114,13 @@ function NavContent() {
                         className={classnames("button-dapp-menu", { active: isActive })}
                     >
                         <div className="dapp-menu-item">
-                            <img alt="" src={GlobeIcon} />
+                            {/* <img alt="" src={GlobeIcon} /> */}
                             <p>Beta</p>
                         </div>
                     </Link>
 
                     <Link
+                        style={{display: "none"}}
                         component={NavLink}
                         to="/token"
                         isActive={(match: any, location: any) => {
@@ -127,7 +129,7 @@ function NavContent() {
                         className={classnames("button-dapp-menu", { active: isActive })}
                     >
                         <div className="dapp-menu-item">
-                            <img alt="" src={SaleIcone} />
+                            {/* <img alt="" src={SaleIcone} /> */}
                             <p>Token</p>
                         </div>
                     </Link>
@@ -142,7 +144,7 @@ function NavContent() {
                         className={classnames("button-dapp-menu", { active: isActive })}
                     >
                         <div className="dapp-menu-item">
-                            <img alt="" src={BondIcon} />
+                            {/* <img alt="" src={BondIcon} /> */}
                             <p>Minting</p>
                         </div>
                     </Link>
@@ -156,7 +158,7 @@ function NavContent() {
                         className={classnames("button-dapp-menu", { active: isActive })}
                     >
                         <div className="dapp-menu-item">
-                            <img alt="" src={StakeIcon} />
+                            {/* <img alt="" src={StakeIcon} /> */}
                             <p>Staking</p>
                         </div>
                     </Link>

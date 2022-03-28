@@ -1,9 +1,12 @@
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { Grid, Zoom, useMediaQuery, Link } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import classnames from "classnames";
+import { IReduxState } from "../../store/slices/state.interface";
 import "./Dashboard.scss";
-import {dice, diceGroup, signlogo, ped} from "../../constants/img"
+import {snowy, sam, pure, mike, user101, signlogo, ped, avatar2, avatar211, avatar559, avatar844, avatar956, avatar987, progressSign} from "../../constants/img"
 import { useEffect } from "react";
 
 const useStyles = makeStyles(theme => ({
@@ -19,6 +22,12 @@ function Dashboard() {
     const classes = useStyles();
     const isSmallerScreen = useMediaQuery("(max-width: 960px)");
 
+    const accountLoading = useSelector<IReduxState, boolean>(state => {
+        return state.app.loading;
+    });
+
+    if(accountLoading) return(<div className="progress"><CircularProgress size={150} color="inherit" style={{margin: "16em auto"}} /></div>)
+
     return (
         <section className="container-fluid welcome" id="welcome">
             <div className="content">
@@ -26,13 +35,24 @@ function Dashboard() {
                     <div className="container">
                         <div className="intro">
                             <h1>A BOARD GAME</h1>
-                            <h1>BUILT ON THE AVALANCHE BLOCKCHAIN.</h1>
+                            <h1>POWERED BY AVALANCHE.</h1>
                             <h2>Play Blockways, earn BKWZ tokens.</h2>
                             <p>Whitelist our Avatars NFT’s drop just below. Limited to 1000.</p>
                             <p>By staking the NFT, you will earn BKWZ Tokens daily!</p>
-                            <div className="whitelist-button">Whitelist</div>
+                            <div className="whitelist">
+                                <Link href="https://forms.gle/qpfkxmFUhKiBMaVo9" target="_blank">
+                                    <div className="whitelist-button">Whitelist</div>
+                                </Link>
+                            </div>                            
                             <div className="row dice-group">
-                                <img src={diceGroup} alt="dice" />
+                                <Grid container>
+                                    <Grid item xs={2}><img src={avatar211} alt="dice" /></Grid>
+                                    <Grid item xs={2}><img src={avatar2} alt="dice" /></Grid>
+                                    <Grid item xs={2}><img src={avatar559} alt="dice" /></Grid>
+                                    <Grid item xs={2}><img src={avatar844} alt="dice" /></Grid>
+                                    <Grid item xs={2}><img src={avatar956} alt="dice" /></Grid>
+                                    <Grid item xs={2}><img src={avatar987} alt="dice" /></Grid>
+                                </Grid>
                             </div>
                         </div>
                     </div>
@@ -48,6 +68,7 @@ function Dashboard() {
                                     <h2>Wealthy</h2>
                                     <p className="line"></p>
                                     <p>Building wealth should be a thrilling experience!</p>
+                                    <br />
                                     <p>We're bringing our board game to the Blockchain and letting people build their empire whilst having fun!</p>
                                 </div>
                             </Grid>                        
@@ -57,6 +78,7 @@ function Dashboard() {
                                     <p className="line"></p>
                                     <p>We LOVE games.</p>
                                     <br />
+                                    <br />
                                     <p>Our misssion is to bring you easily accesible, easy to pick up - hard to master games that you remember for a lifetime!</p>
                                 </div>
                             </Grid>                        
@@ -65,6 +87,7 @@ function Dashboard() {
                                     <h2>Community</h2>
                                     <p className="line"></p>
                                     <p>We want you to feel a part of Blockways.</p>
+                                    <br />
                                     <p>We care about our community and want to build healthy and positive relations. and unblock each others way.</p>
                                 </div>
                             </Grid>
@@ -81,17 +104,16 @@ function Dashboard() {
                             <Grid item sm={12} md={3} lg={2} container>
                                 <Grid item sm={3} xs={2} container></Grid>
                                 <Grid item md={12} sm={6}  xs={8} container>
-                                    <img src={signlogo} alt="sign" style={{width: "100%"}}></img>
+                                    <img src={avatar956} alt="sign" style={{width: "76%", margin: "auto"}}></img>
                                 </Grid>
                                 <Grid item xs={2} sm={3} container></Grid>
                             </Grid>
                             <Grid item sm={12} md={7} lg={5} className={classes.textStart}>
-                                <h2><span className="grad-txt">Buy $BKWZ.</span></h2>
-                                <h4>The currency of Blockways</h4>
+                            <h2><span className="grad-txt">Mint Avatars.</span></h2>
+                                <h4>Our avatars combine everything that is beautiful about NFT’s.</h4>
                                 <p>
-                                    BKWZ Token is the in-game currency and your “entry ticket” to the game.
-                                    Buy it from the market or buy it at a discount on the dApp against listed tokens
-                                </p>
+                                Each BKWZ Avatar will provide yield on daily basis. You can claim the rewards at any time or trade your unique BKWZ Avatar on the marketplace.
+                                </p>                                
                             </Grid>
                         </Grid>
                         <br />
@@ -100,15 +122,16 @@ function Dashboard() {
                             <Grid item sm={12} md={3} lg={2} container>
                                 <Grid item sm={3} xs={2} container></Grid>
                                 <Grid item md={12} sm={6}  xs={8} container>
-                                    <img src={dice} alt="dice" style={{width: "80%", margin: "auto"}}></img>
+                                    <img src={signlogo} alt="dice" style={{width: "80%", margin: "auto"}}></img>
                                 </Grid>
                                 <Grid item xs={2} sm={3} container></Grid>
                             </Grid>
                             <Grid item sm={12} md={7} lg={5} className={classes.textStart}>
-                                <h2><span className="grad-txt">Mint Avatars.</span></h2>
-                                <h4>Our avatars combine everything that is beautiful about NFT’s.</h4>
+                                <h2><span className="grad-txt">Buy BKWZ Token</span></h2>
+                                <h4>The currency of Blockways</h4>
                                 <p>
-                                Each BKWZ Avatar will provide yield on daily basis. You can claim the rewards at any time or trade your unique BKWZ Avatar on the marketplace.
+                                    BKWZ Token is the in-game currency and your “entry ticket” to the game.
+                                    Buy it from the market or buy it at a discount on the dApp against listed tokens
                                 </p>
                             </Grid>
                         </Grid>
@@ -116,16 +139,17 @@ function Dashboard() {
                         <Grid container spacing={3}>
                             <Grid item md={2} lg={4}></Grid>
                             <Grid item sm={12} md={7} lg={6} className={classes.textEnd}>
-                                <h2><span className="grad-txt">Mint Avatars.</span></h2>
-                                <h4>Our avatars combine everything that is beautiful about NFT’s.</h4>
+                                <h2><span className="grad-txt">Buy BKWZ Token.</span></h2>
+                                <h4>The currency of Blockways</h4>
                                 <p>
-                                Each BKWZ Avatar will provide yield on daily basis. You can claim the rewards at any time or trade your unique BKWZ Avatar on the marketplace.
+                                    BKWZ Token is the in-game currency and your “entry ticket” to the game.
+                                    Buy it from the market or buy it at a discount on the dApp against listed tokens
                                 </p>
                             </Grid>
                             <Grid item sm={12} md={3} lg={2} container>
                                 <Grid item sm={3} xs={2} container></Grid>
                                 <Grid item md={12} sm={6}  xs={8} container>
-                                    <img src={dice} alt="dice" style={{width: "80%", margin: "auto"}}></img>
+                                    <img src={signlogo} alt="dice" style={{width: "80%", margin: "auto"}}></img>
                                 </Grid>
                                 <Grid item xs={2} sm={3} container></Grid>
                             </Grid>
@@ -156,25 +180,34 @@ function Dashboard() {
                             Meet our <span className="grad-txt">team</span>.
                         </h2>
                         <Grid container>
-                            <Grid item xs={12} sm={6} md={3} className="team-item">
-                                <img src={dice} alt="sam"></img>
+                            <Grid item xs={12} sm={6} md={1} className="team-pad">
+                            </Grid>
+                            <Grid item xs={12} sm={12} md={2}>
+                                <div className="member"><img src={sam} alt="team"/></div>
                                 <h4>Sam</h4>
                                 <p>Project Director</p>
                             </Grid>
-                            <Grid item xs={12} sm={6} md={3} className="team-item">
-                                <img src={dice} alt="sam"></img>
-                                <h4>Greg</h4>
+                            <Grid item xs={12} sm={6} md={2}>
+                                <div className="member"><img src={pure} alt="team"/></div>
+                                <h4>Pure</h4>
                                 <p>Designer</p>
                             </Grid>                        
-                            <Grid item xs={12} sm={6} md={3} className="team-item">
-                                <img src={dice} alt="sam"></img>
+                            <Grid item xs={12} sm={6} md={2}>
+                                <div className="member"><img src={mike} alt="team"/></div>
                                 <h4>Mike</h4>
                                 <p>Game Dev</p>
                             </Grid>
-                            <Grid item xs={12} sm={6} md={3} className="team-item">
-                                <img src={dice} alt="sam"></img>
-                                <h4>Matt</h4>
+                            <Grid item xs={12} sm={6} md={2}>
+                                <div className="member"><img src={user101} alt="team"/></div>
+                                <h4>User101</h4>
+                                <p>Game Dev</p>
+                            </Grid>
+                            <Grid item xs={12} sm={6} md={2}>
+                                <div className="member"><img src={snowy} alt="team"/></div>
+                                <h4>Snowy</h4>
                                 <p>Blockchain Dev</p>
+                            </Grid>
+                            <Grid item xs={12} sm={6} md={1} className="team-pad">
                             </Grid>
                         </Grid>
                     </div>
@@ -187,7 +220,7 @@ function Dashboard() {
                         <Grid container>
                             <Grid item xs={12} md={6} lg={3} className="roadmap-item">
                                 <div>PHASE 1 - Q1</div>
-                                <h4>Website Launch</h4>
+                                <h4><span><img src={progressSign} alt="progress" /></span>Website Launch</h4>
                                 <h4>NFT Presale</h4>
                                 <h4>NFT Public Sale</h4>
                                 <h4>NFT Staking</h4>
@@ -223,18 +256,18 @@ function Dashboard() {
                             <Link href="https://traderjoexyz.com/home" target="_blank">
                                 <div className="buy-button">Buy on TraderJoe</div>
                             </Link>
-                            <p>Comming soon...</p>
+                            <p>Coming soon!</p>
                         </div>
                     </div>
                 </Zoom>
                 <Zoom in={true}>
                     <div className="address">
                         <div className="row">
-                            <span><img src={dice} alt="logo" style={{transform: "scale(0.9)"}} /><p>Token Contract address: 0xab5231d197AC42123d346f4EB70C703F308D1E0x234</p></span>
+                            <span><img src={signlogo} alt="logo" style={{transform: "scale(0.9)"}} /><p>Token Contract address: Coming soon!</p></span>
                         </div>
                         <br />
                         <div className="row">
-                            <span><img src={signlogo} alt="logo" /><p>Avatar Contract address: 0x8927985B358692815E18F2138964679DcA231fds5ds3</p></span>
+                            <span><img src={avatar2} style={{border: "1px solid rgba(255,255,255,0.1)", borderRadius: "15px", transform: "scale(0.8)"}} alt="logo" /><p>Avatar Contract address: Coming soon!</p></span>
                         </div>
                     </div>
                 </Zoom>

@@ -3,7 +3,7 @@ import { setAll } from "src/helpers";
 
 export interface INft {
     id: string;
-    uri: string;
+    avatarId: string;
     staked: boolean;
     rarity: string;
     image: string;

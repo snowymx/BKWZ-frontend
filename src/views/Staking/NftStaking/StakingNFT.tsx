@@ -10,12 +10,20 @@ import { IPendingTxn, isPendingTxn, txnButtonText } from "../../../store/slices/
 import { fetchNftDetails } from "src/store/slices/nfts-slice";
 import "../Staking.scss";
 
-interface INftStakingProps {
+interface PropsInterface {
+    setStakedNftCount: (count:number) => void;
+}
+  
+interface INftItemProps {
     nftItem: INft;
 }
 
-function NftBox({nftItem}: INftStakingProps) {
-    const dispatch = useDispatch();
+function NftBox({nftItem}: INftItemProps) {
+    const dispatch = useDispatch();    
+
+    const baseUri = useSelector<IReduxState, string>(state => {
+        return state.app.baseUri;
+    });
 
     const [imageLoaded, setImageLoaded] = useState(false);
     const [imageError, setImageError] = useState(false);
@@ -31,18 +39,17 @@ function NftBox({nftItem}: INftStakingProps) {
     const onloadMetadata = (nftDetail: any) => {
         rarityName = "rarity-" + nftDetail.rarity;
         nftImage = nftDetail.image;
-        // console.log(nftDetail);
         dispatch(fetchNftDetails({
             id: nftItem.id,
-            uri: nftItem.uri,
-            staked: false,
+            avatarId: nftItem.avatarId,
+            staked: nftItem.staked,
             rarity: rarityName,
             image: nftImage,
         }));
     }
     
     useEffect(() => {
-        loadMetadata(nftItem.uri + ".json").then((data) => onloadMetadata(data.data));        
+        if(baseUri) loadMetadata(baseUri + nftItem.avatarId + ".json").then((data) => onloadMetadata(data.data));        
     }, []);
 
     // useEffect(() => {
@@ -55,12 +62,10 @@ function NftBox({nftItem}: INftStakingProps) {
             <h5 className="gray">Estimated daily yield:</h5>
             <h5 className="yellow-bold">1.00 BKWZ</h5>
             <div className="nft-image">
-            <img src={nftItem.image} style={{display: "none"}} alt="nft" onLoad={() => setImageLoaded(true)} onError={() => setImageError(true)} />
-            {nftItem.image && imageLoaded?
-                <img src={nftItem.image} alt="nft" />
-            :
-            <Skeleton className="style-skeleton" variant="rect" height={263} width={263} style={{borderRadius: "20px"}} />
-            }                
+                <img src={nftItem.image} style={{display: imageLoaded?'block':"none"}} alt="nft" onLoad={() => setImageLoaded(true)} onError={() => setImageError(true)} />                
+                {!imageLoaded && imageError && <Skeleton className="style-skeleton" variant="rect" height={263} width={263} style={{borderRadius: "20px"}} />}
+                {!imageLoaded && !imageError && <Skeleton className="style-skeleton" variant="rect" height={263} width={263} style={{borderRadius: "20px"}} />}
+                {/* {!imageLoaded && !imageError && <div className="error-image">Failed</div>}                 */}
             </div>
             <h5 className="gray">Rarity:</h5>
             {nftItem.rarity?
@@ -95,7 +100,7 @@ function SkeletonGroup() {
     )
 }
 
-function StakingNFT() {
+function StakingNFT(props: PropsInterface) {
 
     const dispatch = useDispatch();
     const { provider, address, connect, chainID, checkWrongNetwork } = useWeb3Context();
@@ -108,18 +113,25 @@ function StakingNFT() {
         return state.account.loading;
     });
 
-    const avatarBalance = useSelector<IReduxState, string>(state => {
+    const avatarBalance = useSelector<IReduxState, number>(state => {
         return state.account.balances.avatarBalance;
     });
 
     const nfts = useSelector<IReduxState, INft[]>(state => {
-        return state.nfts;
+        let stakedNfts: Array<INft> = [];
+        state.nfts.map(nft => {
+            if(nft.staked) stakedNfts.push(nft);
+        });
+        return stakedNfts;
     });
+
+    useEffect(() => {
+        props.setStakedNftCount(nfts.length);
+    }, []);
 
     return (
         <>
             <div><h4 className="your-avatars">Your Staked Avatars</h4></div>
-            {/* <SkeletonGroup /> */}
             <div className="avatars">
                 {nfts.length > 0 ?
                     nfts.map(avatar => (
@@ -130,13 +142,13 @@ function StakingNFT() {
                         <CircularProgress size={130} color="inherit" style={{margin: "10em auto"}} />
                     :
                         <div style={{margin: "10em auto"}}>
-                            <h4>You have no Staked Atatar</h4>
+                            <h4>You have no Staked Avatars</h4>
                         </div>
                 }
             </div>
             <div className="claim-all">
                 <div className="available-claim">
-                    Available to claim: <span className="yellow-bold"> 23.222 BKWZ</span>
+                    Available to claim: <span className="yellow-bold"> 0 BKWZ</span>
                 </div>
                 <div className="all-claim-button">CLAIM ALL</div>
             </div>

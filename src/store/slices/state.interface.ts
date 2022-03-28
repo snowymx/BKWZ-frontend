@@ -3,6 +3,7 @@ import { IAccountSlice } from "./account-slice";
 import { IAppSlice } from "./app-slice";
 import { MessagesState } from "./messages-slice";
 import { INft } from "./nfts-slice";
+import { IModals } from "./modals-slice";
 
 export interface IReduxState {
     pendingTransactions: IPendingTxn[];
@@ -10,4 +11,5 @@ export interface IReduxState {
     app: IAppSlice;
     messages: MessagesState;
     nfts: INft[];
+    modals: IModals;
 }

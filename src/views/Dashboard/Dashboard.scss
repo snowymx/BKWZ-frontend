@@ -14,7 +14,7 @@
         width: 100%;
         background-size: cover;
         background-position: center;
-        background-image: url("../../assets/image/back.jpg");
+        // background-image: url("../../assets/image/back.jpg");
     }
     .content {
         .intro {
@@ -24,6 +24,11 @@
             text-align: center;
             margin: auto;
             margin-top: 6em;
+            a {
+                text-decoration: none;
+                color: white;
+                letter-spacing: 2px;
+            }
             h1 {
                 font-size: 3em;
                 margin: 0.1em;
@@ -35,6 +40,10 @@
                 font-size: 2em;
                 margin: 0.5em;
             }
+            .whitelist {
+                width: max-content;
+                margin: auto;
+            }
             .whitelist-button {
                 margin: auto;
                 margin-top: 3em;
@@ -45,18 +54,25 @@
                 cursor: pointer;
                 padding: 0.5em;
                 background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%);
-                border: 1px solid rgba(255, 255, 255, 0.3);
+                border: 1px solid rgba(255, 255, 255, 0.19);
                 box-shadow: 0px 0px 30px 4px rgb(0 0 0 / 25%);
                 border-radius: 25px;
-                width: 260px;
+                width: 300px;
+            }            
+            .whitelist-button:hover {
+                box-shadow: 0px 0px 8px 2px #ba0edc;
+                // color:rgba(208, 47, 236, 0.815);
             }
             .dice-group {
+                background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%);
+                border: 1px solid rgba(255, 255, 255, 0.19);
+                border-width: 1px 0;
+                padding: 2em 4em;
                 img {
-                    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%);
-                    border: 1px solid rgba(255, 255, 255, 0.19);
                     box-sizing: border-box;
-                    border-radius: 25px;
-                    padding: 1em;
+                    width: 70%;
+                    border-radius: 15%;
+                    box-shadow: 0px 0px 4px 1px #4e3c74;
                 }
             }
         }
@@ -70,6 +86,8 @@
         margin-top: 5em;
         padding: 2em;
         background: linear-gradient(126.6deg, rgba(0, 0, 0, 0.7) 28.69%, rgba(0, 0, 0, 0.7) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.19);
+        border-width: 1px 0;
         .mission-item {
             border: 1px solid #a501aa;
             box-sizing: border-box;
@@ -78,9 +96,11 @@
             margin: 2em;
             padding: 2em;
             margin-top: 3em;
+            height: 460px;
             .line {
                 margin-right: 25%;
                 margin-left: 25%;
+                margin-bottom: 1em;
                 border-top: 2px solid rgba(217, 0, 255, 0.61);
                 box-shadow: 0px 0px 20px #ba0edc;
             }
@@ -99,7 +119,7 @@
         margin-top: 3em;
         margin-bottom: 3em;
         background: linear-gradient(126.6deg, rgba(0, 0, 0, 0.7) 28.69%, rgba(0, 0, 0, 0.7) 100%);
-        border: 1px solid rgba(255, 255, 255, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.19);
         border-radius: 25px;
         padding: 3em;
         padding-top: 1.5em;
@@ -119,29 +139,30 @@
         margin: 5em;
         margin-top: 3em;
         margin-bottom: 3em;
-        border: 1px solid rgba(255, 255, 255, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.19);
         border-radius: 25px;
         padding: 1em;
-        padding-left: 5em;
-        padding-right: 5em;
         background: linear-gradient(126.6deg, rgba(0, 0, 0, 0.7) 28.69%, rgba(0, 0, 0, 0.7) 100%);
         h2 {
             margin-bottom: 1em;
             margin-top: 0.5em;
         }
-        .team-item {
-            padding: 5px;
+        .member {
+            margin: 1em auto;
+            width: 8em;
+            height: 8em;
+            padding: 1px;
+            background: linear-gradient(180deg, #a501aa 0%, #006a8a 100%);
+            border-radius: 26px;              
             img {
-                width: 8em;
-                border: 5px;
-                background: linear-gradient(180deg, #a501aa 0%, #006a8a 100%);
-                border-radius: 5px;
-            }
-            h4 {
-                margin-top: 0.5em;
-                margin-bottom: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 26px;
             }
         }
+        .team-pad {
+            display: inline;
+        } 
     }
     .roadmap {
         backdrop-filter: blur(10px);
@@ -153,7 +174,7 @@
         margin-top: 3em;
         margin-bottom: 3em;
         background: linear-gradient(126.6deg, rgba(0, 0, 0, 0.7) 28.69%, rgba(0, 0, 0, 0.7) 100%);
-        border: 1px solid rgba(255, 255, 255, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.19);
         border-radius: 25px;
         padding: 3em;
         h2 {
@@ -169,7 +190,13 @@
                 border: 2px solid #a13abc;
                 border-image-slice: 1;
                 border-radius: 50px;
-                // border-image-source: linear-gradient(to top, #743ad5, #d53a9d);
+            }
+            span {
+                padding-right: 15px;
+                img {
+                    width: 18px;
+                    transform: scale(1.3);
+                }
             }
         }
     }
@@ -180,7 +207,7 @@
         color: white;
         text-align: center;
         background: linear-gradient(126.6deg, rgba(0, 0, 0, 0.7) 28.69%, rgba(0, 0, 0, 0.7) 100%);
-        border: 1px solid rgba(255, 255, 255, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.19);
         border-radius: 25px;
         padding: 3em;
         margin: auto;
@@ -217,7 +244,7 @@
         margin-top: 3em;
         margin-bottom: 1em;
         background: linear-gradient(126.6deg, rgba(0, 0, 0, 0.7) 28.69%, rgba(0, 0, 0, 0.7) 100%);
-        border: 1px solid rgba(255, 255, 255, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.19);
         border-radius: 25px;
         padding: 3em;
         img {
@@ -245,6 +272,40 @@
     }
 }
 
+.progress {
+    width: fit-content;
+    margin: auto;
+    color: white;
+}
+
+@media (max-width: 1280px) {
+    .welcome {
+        .mission .mission-item {
+            height: auto;
+        }
+    }    
+}
+
+@media (max-width: 960px) {
+    .welcome {
+        .team {
+            .team-pad {
+                display: none;
+            }
+        }
+        .content .intro .dice-group {
+            img {
+                width: 80%;
+            }
+        }
+        .adventure {
+            hr {
+                margin-bottom: 2em;
+            }
+        }
+    }    
+}
+
 @media (max-width: 786px) {
     .welcome {
         .content {
@@ -257,10 +318,8 @@
                 font-size: 0.8em;
             }
         }
-        .dice-group {
-            img {
-                width: 90%;
-            }
+        .content .intro .dice-group {
+            padding: 1em;
         }
     }
 }
@@ -270,6 +329,9 @@
         font-size: 0.6em;
     }
     .welcome {
+        .content .intro .dice-group {
+            padding: 1em 0.5em;
+        }
         .team {
             .px-5 {
                 padding-left: 0em !important;
@@ -284,18 +346,14 @@
             margin-bottom: 3em;
             border: 1px solid rgba(255, 255, 255, 0.4);
             border-radius: 25px;
-            padding: 1em;
-            padding-left: 5em;
-            padding-right: 5em;
+            padding: 1em 5em;
             background: linear-gradient(126.6deg, rgba(0, 0, 0, 0.7) 28.69%, rgba(0, 0, 0, 0.7) 100%);
-            .team-item {
-                img {
-                    width: 5em;
-                    border: 5px;
-                    background: linear-gradient(180deg, #a501aa 0%, #006a8a 100%);
-                    border-radius: 5px;
-                }
-            }
+            .member {
+                width: 8em;
+                height: 8em;
+                background: linear-gradient(180deg, #a501aa 0%, #006a8a 100%);
+                border-radius: 26px;       
+            } 
         }
         .mission {
             padding: 2em 0;

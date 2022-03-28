@@ -5,6 +5,7 @@ import appReducer from "./slices/app-slice";
 import pendingTransactionsReducer from "./slices/pending-txns-slice";
 import messagesReducer from "./slices/messages-slice";
 import nftsReducer from "./slices/nfts-slice";
+import modalsReducer from "./slices/modals-slice"
 
 const store = configureStore({
     reducer: {
@@ -13,6 +14,7 @@ const store = configureStore({
         pendingTransactions: pendingTransactionsReducer,
         messages: messagesReducer,
         nfts: nftsReducer,
+        modals: modalsReducer,
     },
     middleware: getDefaultMiddleware => getDefaultMiddleware({ serializableCheck: false }),
 });

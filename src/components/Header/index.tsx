@@ -88,7 +88,7 @@ function Header({ handleDrawerToggle, drawe }: IHeader) {
                     </div>
                     <Grid container spacing={3} className="dapp-topbar-links-wrap">
                         <Grid item xs container>
-                            <Grid item xs={3}>
+                            <Grid item xs={4}>
                                 <Link
                                     component={NavLink}
                                     to="/gameplay"
@@ -99,18 +99,19 @@ function Header({ handleDrawerToggle, drawe }: IHeader) {
                                     <div className={classnames("link-item", { active: false })}>Gameplay</div>
                                 </Link>
                             </Grid>
-                            <Grid item xs={3}>
-                                <Link
-                                    component={NavLink}
-                                    to="/dao"
-                                    isActive={(match: any, location: any) => {
-                                        return checkPage(location, "dao");
-                                    }}
+                            <Grid item xs={4}>
+                                <Link                                    
+                                    href="https://snapshot.org/#/blockways.eth" target="_blank"
+                                    // component={NavLink}
+                                    // to="/dao"
+                                    // isActive={(match: any, location: any) => {
+                                    //     return checkPage(location, "dao");
+                                    // }}
                                 >
                                     <div className={classnames("link-item", { active: false })}>DAO</div>
                                 </Link>
                             </Grid>
-                            <Grid item xs={3}>
+                            <Grid item xs={4}>
                                 <Link
                                     component={NavLink}
                                     to="/beta"
@@ -121,7 +122,7 @@ function Header({ handleDrawerToggle, drawe }: IHeader) {
                                     <div className={classnames("link-item", { active: false })}>Beta</div>
                                 </Link>
                             </Grid>
-                            <Grid item xs={3}>
+                            <Grid item xs={3} style={{display: "none"}}>
                                 <Link
                                     component={NavLink}
                                     to="/token"

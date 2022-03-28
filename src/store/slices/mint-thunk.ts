@@ -9,19 +9,21 @@ import { JsonRpcProvider, StaticJsonRpcProvider } from "@ethersproject/providers
 import { Networks } from "../../constants/blockchain";
 import { warning, success, info, error } from "../../store/slices/messages-slice";
 import { messages } from "../../constants/messages";
+import { setMintModal, setJustMint } from "./modals-slice";
 import { getGasPrice } from "../../helpers/get-gas-price";
 import { metamaskErrorWrap } from "../../helpers/metamask-error-wrap";
 import { sleep } from "../../helpers";
 import { waitForDebugger } from "inspector";
 
 interface IChangeMint {
-    value: string;
+    amount: string;
+    avax: string;
     provider: StaticJsonRpcProvider | JsonRpcProvider;
     address: string;
     networkID: Networks;
 }
 
-export const changeMint = createAsyncThunk("mint/changeMint", async ({ value, provider, address, networkID }: IChangeMint, { dispatch }) => {
+export const changeMint = createAsyncThunk("mint/changeMint", async ({ amount, avax, provider, address, networkID }: IChangeMint, { dispatch }) => {
     if (!provider) {
         dispatch(warning({ text: messages.please_connect_wallet }));
         return;
@@ -34,7 +36,7 @@ export const changeMint = createAsyncThunk("mint/changeMint", async ({ value, pr
 
     try {
         const gasPrice = await getGasPrice(provider);
-        mintTx = await avatarContract.mintAvatar(value, { gasPrice });
+        mintTx = await avatarContract.mintAvatar(amount, { gasPrice, value: ethers.utils.parseEther(avax) });
         const pendingTxnType = "minting";
         dispatch(
             fetchPendingTxns({
@@ -57,5 +59,8 @@ export const changeMint = createAsyncThunk("mint/changeMint", async ({ value, pr
     dispatch(info({ text: messages.your_avatar_successfully_minted }));
     await dispatch(loadAppDetails({ networkID, provider }));
     await dispatch(loadAccountDetails({ networkID, provider, address }));
+    dispatch(setJustMint(Number(amount)));
+    await sleep(0.5);
+    dispatch(setMintModal(true));
     return;
 });

@@ -1,4 +1,4 @@
-import { ethers } from "ethers";
+import { BigNumber, ethers } from "ethers";
 import { getAddresses } from "../../constants";
 import { AvatarNftContract } from "../../abi";
 import { setAll } from "../../helpers";
@@ -17,16 +17,16 @@ interface IGetBalances {
     provider: StaticJsonRpcProvider | JsonRpcProvider;
 }
 
-export interface IAvatarData {
-    id: string;
-    uri: string;
+export interface IAvatarDetail {
+    id: BigNumber;
+    avatarId: BigNumber;
     staked: boolean;
 }
 
 interface IAccountBalances {
     balances: {
         avax: string;
-        avatarBalance: string;
+        avatarBalance: number;
     };
 }
 
@@ -36,24 +36,10 @@ export const getBalances = createAsyncThunk("account/getBalances", async ({ addr
     const avatarContract = new ethers.Contract(addresses.AVATARNFT_ADDRESS, AvatarNftContract, provider);
     const avatarBalance = await avatarContract.balanceOf(address);
 
-    let avatarData: IAvatarData[] = [];
-
-    dispatch(clearNfts());
-    for(var i = 0; i < avatarBalance; i ++) {
-        const avatarId = await avatarContract.tokenOfOwnerByIndex(address, i);
-        const avatarUri = await avatarContract.tokenURI(avatarId);
-        dispatch(
-            fetchNft({
-                id: avatarId, uri: avatarUri, staked: false, rarity: "", image: "",
-            })
-        );
-        avatarData.push({ id: avatarId, uri: avatarUri, staked: false});
-    }
-
     return {
         balances: {
             avax: ethers.utils.formatEther(avaxBalance),
-            avatarBalance,
+            avatarBalance: Number(avatarBalance),
         },
     };
 });
@@ -68,7 +54,6 @@ interface IUserAccountDetails {
     balances: {
         avax: string;
         avatarBalance: number;
-        avatarData: IAvatarData[];
     };
 }
 
@@ -78,24 +63,25 @@ export const loadAccountDetails = createAsyncThunk("account/loadAccountDetails",
     const avatarContract = new ethers.Contract(addresses.AVATARNFT_ADDRESS, AvatarNftContract, provider);
     const avatarBalance = await avatarContract.balanceOf(address);
 
-    let avatarData: IAvatarData[] = [];
-
     dispatch(clearNfts());
-    for(var i = 0; i < avatarBalance; i ++) {
-        const avatarId = await avatarContract.tokenOfOwnerByIndex(address, i);
-        const avatarUri = await avatarContract.tokenURI(avatarId);
+
+    const avatars:IAvatarDetail[] = await avatarContract.ownedAvatars(address);
+    avatars.map(avatar => {
         dispatch(
             fetchNft({
-                id: avatarId, uri: avatarUri, staked: false, rarity: "", image: "",
+                id: avatar.id.toString(),
+                avatarId: avatar.avatarId.toString(),
+                staked: avatar.staked,
+                rarity: "",
+                image: "",
             })
         );
-    }
+    })
 
     return {
         balances: {
             avax: ethers.utils.formatEther(avaxBalance),
             avatarBalance: Number(avatarBalance),
-            avatarData,
         },
     };
 });
@@ -104,13 +90,13 @@ export interface IAccountSlice {
     loading: boolean;
     balances: {
         avax: string;
-        avatarBalance: string;
+        avatarBalance: number;
     };
 }
 
 const initialState: IAccountSlice = {
     loading: true,
-    balances: { avax: "", avatarBalance: "", },
+    balances: { avax: "", avatarBalance: 0, },
 };
 
 const accountSlice = createSlice({

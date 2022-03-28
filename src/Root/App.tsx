@@ -71,6 +71,10 @@ function App() {
         }
     }, [connected]);
 
+    useEffect(() => {
+        loadDetails("app");
+    }, []);
+
     // if (isAppLoading) return <Loading />;
 
     return (
