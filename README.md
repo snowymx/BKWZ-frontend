@@ -1,4 +1,6 @@
-##  🔧 Setting up Local Development
+## BlockWays frontend    https://blockways.io
+
+#  🔧 Setting up Local Development 
 
 Required: 
 - [Node v14](https://nodejs.org/download/release/latest-v14.x/)  
